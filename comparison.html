@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mikal Nielsen — Website Redesign Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0c0c0d;
+      --surface:  #141416;
+      --border:   rgba(255,255,255,0.07);
+      --muted:    rgba(255,255,255,0.35);
+      --mid:      rgba(255,255,255,0.55);
+      --bright:   #ffffff;
+      --col-a:    #c9a96e;
+      --col-b:    #00d4aa;
+      --col-c:    #c4622d;
+      --col-d:    #ffc200;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--bright);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ──────────────────────────────────────────── */
+    header {
+      text-align: center;
+      padding: 5rem 3rem 4rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .kicker {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted);
+      display: block; margin-bottom: 1.25rem;
+    }
+    header h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 600; line-height: 1.2;
+      color: var(--bright); margin-bottom: 1rem;
+    }
+    header p {
+      color: var(--mid); font-size: 0.975rem; line-height: 1.75;
+      max-width: 560px; margin: 0 auto 2rem;
+    }
+    .header-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      padding: 0.55rem 1.25rem; border-radius: 100px;
+      font-size: 0.75rem; color: var(--muted);
+    }
+
+    /* ─── OPTION CARDS GRID ───────────────────────────────── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    .card {
+      background: var(--surface);
+      display: flex; flex-direction: column;
+    }
+
+    /* ─── CARD HEADER ─────────────────────────────────────── */
+    .card-head {
+      padding: 2.25rem 2.25rem 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .option-tag {
+      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.22em;
+      text-transform: uppercase; display: block; margin-bottom: 0.6rem;
+    }
+    .tag-a { color: var(--col-a); }
+    .tag-b { color: var(--col-b); }
+    .tag-c { color: var(--col-c); }
+    .tag-d { color: var(--col-d); }
+
+    .card-title { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
+    .card-subtitle { font-size: 0.825rem; color: var(--muted); line-height: 1.5; margin-bottom: 1.25rem; }
+
+    .swatches { display: flex; gap: 5px; }
+    .swatch { height: 7px; border-radius: 4px; flex: 1; }
+
+    /* ─── PREVIEW ─────────────────────────────────────────── */
+    .preview-wrap {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background: #111;
+      flex-shrink: 0;
+    }
+    .preview-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 1440px;
+      border: none;
+      display: block;
+      transform-origin: top left;
+      pointer-events: none;
+      /* width + height + scale all set dynamically by JS */
+    }
+    .preview-open {
+      position: absolute; top: 0.75rem; right: 0.75rem;
+      background: rgba(0,0,0,0.65); backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.75rem; border-radius: 5px;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .preview-open:hover { color: var(--bright); }
+
+    /* ─── CARD BODY ───────────────────────────────────────── */
+    .card-body {
+      padding: 2rem 2.25rem;
+      flex: 1; display: flex; flex-direction: column; gap: 1.5rem;
+    }
+
+    .detail-label {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 0.45rem;
+    }
+    .detail-value { font-size: 0.825rem; color: var(--mid); line-height: 1.6; }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .chip {
+      font-size: 0.65rem; font-weight: 600;
+      padding: 0.22rem 0.6rem; border-radius: 100px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .chip-a { background: rgba(201,169,110,0.1); border-color: rgba(201,169,110,0.2); color: var(--col-a); }
+    .chip-b { background: rgba(0,212,170,0.1); border-color: rgba(0,212,170,0.2); color: var(--col-b); }
+    .chip-c { background: rgba(196,98,45,0.1); border-color: rgba(196,98,45,0.2); color: var(--col-c); }
+    .chip-d { background: rgba(255,194,0,0.12); border-color: rgba(255,194,0,0.25); color: #b38900; }
+
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .feature-list li {
+      font-size: 0.78rem; color: var(--mid); padding: 0.38rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex; align-items: flex-start; gap: 0.55rem; line-height: 1.5;
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .fi { flex-shrink: 0; font-weight: 700; }
+    .fi-a { color: var(--col-a); }
+    .fi-b { color: var(--col-b); }
+    .fi-c { color: var(--col-c); }
+    .fi-d { color: #b38900; }
+
+    .who-box {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.85rem 1rem;
+      font-size: 0.78rem; color: var(--mid); line-height: 1.65;
+    }
+
+    /* ─── CARD FOOTER ─────────────────────────────────────── */
+    .card-foot {
+      padding: 1.5rem 2.25rem 2.25rem;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .open-btn {
+      display: block; text-align: center; text-decoration: none;
+      padding: 0.85rem; border-radius: 8px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .open-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-a { background: var(--col-a); color: #1a2744; }
+    .btn-b { background: var(--col-b); color: #1c1c1e; }
+    .btn-c { background: var(--col-c); color: #fff; }
+    .btn-d { background: var(--col-d); color: #141f8a; }
+
+    /* ─── NEXT STEPS ──────────────────────────────────────── */
+    .next {
+      max-width: 960px; margin: 0 auto;
+      padding: 5rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+    .next h2 {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 2.5rem;
+    }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+    .step {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.5rem;
+    }
+    .step-n {
+      font-size: 2.5rem; font-weight: 800; color: rgba(255,255,255,0.06);
+      line-height: 1; margin-bottom: 0.75rem; display: block;
+    }
+    .step h3 { font-size: 0.875rem; font-weight: 700; color: var(--mid); margin-bottom: 0.4rem; }
+    .step p { font-size: 0.775rem; color: var(--muted); line-height: 1.65; }
+
+    .swap-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.75rem;
+    }
+    .swap-box h3 {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem;
+    }
+    .swap-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem;
+    }
+    .swap-item {
+      font-size: 0.775rem; color: var(--muted);
+      display: flex; align-items: baseline; gap: 0.5rem; padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .swap-item::before { content: '→'; color: rgba(255,255,255,0.15); flex-shrink: 0; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .swap-grid { grid-template-columns: 1fr; }
+      header { padding: 3.5rem 1.5rem 2.5rem; }
+      .next { padding: 3.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="kicker">mikal.nz · website redesign · April 2026</span>
+  <h1>Four Directions.<br />One Right Choice.</h1>
+  <p>Four distinct concepts for Mikal Nielsen's coaching website. Each has a different aesthetic, tone, and audience — all serve his positioning. Open any option to view the full mockup.</p>
+  <span class="header-badge">Real photos + real content from mikal.nz throughout · Open any option to review in full</span>
+</header>
+
+<div class="grid">
+
+  <!-- ─── OPTION A ─────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-head">
+      <span class="option-tag tag-a">Option A</span>
+      <div class="card-title">The Quiet Authority</div>
+      <div class="card-subtitle">Calm, premium, minimalist. Like Tony Robbins meets a luxury wellness brand.</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#1a2744" title="Deep Navy"></div>
+        <div class="swatch" style="background:#f8f4ef" title="Warm Off-White"></div>
+        <div class="swatch" style="background:#c9a96e" title="Gold Accent"></div>
+      </div>
+    </div>
+
+    <div class="preview-wrap">
+      <iframe src="option-a/index.html" title="Option A Preview" loading="eager"></iframe>
+      <a href="option-a/index.html" class="preview-open" target="_blank">Open full ↗</a>
+    </div>
+
+    <div class="card-body">
+      <div>
+        <div class="detail-label">Vibe</div>
+        <div class="tag-row">
+          <span class="chip chip-a">Premium</span>
+          <span class="chip chip-a">Minimalist</span>
+          <span class="chip chip-a">Executive</span>
+          <span class="chip chip-a">Serif-Led</span>
+          <span class="chip chip-a">Classic</span>
+        </div>
+      </div>
+      <div>
+        <div class="detail-label">Typography</div>
+        <div class="detail-value">Cormorant Garamond (headlines) + Inter (body)</div>
+      </div>
+      <div>
+        <div class="detail-label">Best For</div>
+        <div class="who-box">Clients who want Mikal to feel like a premium, high-trust advisor. Appeals to senior executives, established business owners, and those who value quiet authority over loud branding.</div>
+      </div>
+      <div>
+        <div class="detail-label">Key Features</div>
+        <ul class="feature-list">
+          <li><span class="fi fi-a">✓</span>Full-screen hero with dramatic typographic impact</li>
+          <li><span class="fi fi-a">✓</span>Gold accent system — warm and unmistakably premium</li>
+          <li><span class="fi fi-a">✓</span>Generous whitespace — nothing fights for attention</li>
+          <li><span class="fi fi-a">✓</span>3-column podcast strip with editorial feel</li>
+          <li><span class="fi fi-a">✓</span>Dark book section — strong visual contrast</li>
+          <li><span class="fi fi-a">✓</span>Rotating testimonials + video embed placeholder</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-foot">
+      <a href="option-a/index.html" class="open-btn btn-a" target="_blank">Open Option A in Full →</a>
+    </div>
+  </div>
+
+  <!-- ─── OPTION B ─────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-head">
+      <span class="option-tag tag-b">Option B</span>
+      <div class="card-title">The Mental Fitness Coach</div>
+      <div class="card-subtitle">Energetic, modern, performance-focused. Like a premium fitness brand — but for the mind.</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#1c1c1e" title="Charcoal Black"></div>
+        <div class="swatch" style="background:#00d4aa" title="Electric Teal"></div>
+        <div class="swatch" style="background:#ffffff;border:1px solid rgba(255,255,255,0.15)" title="White"></div>
+      </div>
+    </div>
+
+    <div class="preview-wrap">
+      <iframe src="option-b/index.html" title="Option B Preview" loading="eager"></iframe>
+      <a href="option-b/index.html" class="preview-open" target="_blank">Open full ↗</a>
+    </div>
+
+    <div class="card-body">
+      <div>
+        <div class="detail-label">Vibe</div>
+        <div class="tag-row">
+          <span class="chip chip-b">Energetic</span>
+          <span class="chip chip-b">Modern</span>
+          <span class="chip chip-b">Bold</span>
+          <span class="chip chip-b">Performance</span>
+          <span class="chip chip-b">Techy</span>
+        </div>
+      </div>
+      <div>
+        <div class="detail-label">Typography</div>
+        <div class="detail-value">Sora (all weights) — bold geometric sans-serif throughout</div>
+      </div>
+      <div>
+        <div class="detail-label">Best For</div>
+        <div class="who-box">Tech entrepreneurs, high-achieving business leaders, and younger business owners who respond to confidence and modern energy. Strong performance brand feel.</div>
+      </div>
+      <div>
+        <div class="detail-label">Key Features</div>
+        <ul class="feature-list">
+          <li><span class="fi fi-b">✓</span>Split-screen hero with animated live badge</li>
+          <li><span class="fi fi-b">✓</span>Tabbed services (Individuals / Business / Speaking)</li>
+          <li><span class="fi fi-b">✓</span>Framework comparison diagram</li>
+          <li><span class="fi fi-b">✓</span>Podcast hub with featured show + episode grid</li>
+          <li><span class="fi fi-b">✓</span>Wealth Dynamics quiz teaser as lead magnet</li>
+          <li><span class="fi fi-b">✓</span>Newsletter opt-in with no-fluff positioning</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-foot">
+      <a href="option-b/index.html" class="open-btn btn-b" target="_blank">Open Option B in Full →</a>
+    </div>
+  </div>
+
+  <!-- ─── OPTION C ─────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-head">
+      <span class="option-tag tag-c">Option C</span>
+      <div class="card-title">The Wise Guide</div>
+      <div class="card-subtitle">Warm, humanistic, nature-inspired. Like a wise mentor by a fire. Organic and deeply personal.</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#2d5016" title="Forest Green"></div>
+        <div class="swatch" style="background:#e8dcc8" title="Sandy Beige"></div>
+        <div class="swatch" style="background:#c4622d" title="Terracotta"></div>
+        <div class="swatch" style="background:#faf7f2" title="Cream"></div>
+      </div>
+    </div>
+
+    <div class="preview-wrap">
+      <iframe src="option-c/index.html" title="Option C Preview" loading="eager"></iframe>
+      <a href="option-c/index.html" class="preview-open" target="_blank">Open full ↗</a>
+    </div>
+
+    <div class="card-body">
+      <div>
+        <div class="detail-label">Vibe</div>
+        <div class="tag-row">
+          <span class="chip chip-c">Warm</span>
+          <span class="chip chip-c">Humanistic</span>
+          <span class="chip chip-c">Organic</span>
+          <span class="chip chip-c">Story-Led</span>
+          <span class="chip chip-c">Authentic</span>
+        </div>
+      </div>
+      <div>
+        <div class="detail-label">Typography</div>
+        <div class="detail-value">Lora (headlines) + Nunito (body) — warm, rounded, approachable</div>
+      </div>
+      <div>
+        <div class="detail-label">Best For</div>
+        <div class="who-box">Clients who want Mikal to feel like a trusted guide, not a brand. People who value depth, authenticity, and personal connection over performance metrics.</div>
+      </div>
+      <div>
+        <div class="detail-label">Key Features</div>
+        <ul class="feature-list">
+          <li><span class="fi fi-c">✓</span>Organic blob-shaped hero photo — warm and distinctive</li>
+          <li><span class="fi fi-c">✓</span>Mikal's personal story section — deep humanisation</li>
+          <li><span class="fi fi-c">✓</span>Full-width philosophy quote block</li>
+          <li><span class="fi fi-c">✓</span>Transparent pricing section</li>
+          <li><span class="fi fi-c">✓</span>Free PDF resource + newsletter lead magnet</li>
+          <li><span class="fi fi-c">✓</span>Speaking page built in as a core section</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-foot">
+      <a href="option-c/index.html" class="open-btn btn-c" target="_blank">Open Option C in Full →</a>
+    </div>
+  </div>
+
+  <!-- ─── OPTION D ─────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-head">
+      <span class="option-tag tag-d">Option D</span>
+      <div class="card-title">The Real mikal.nz Brand</div>
+      <div class="card-subtitle">The actual brand colours from the logo — bold yellow + royal blue — rebuilt into a modern, structured layout.</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#ffc200" title="Brand Yellow"></div>
+        <div class="swatch" style="background:#1e2fb5" title="Royal Blue"></div>
+        <div class="swatch" style="background:#141f8a" title="Deep Blue"></div>
+        <div class="swatch" style="background:#fffdf5" title="Warm Off-White"></div>
+      </div>
+    </div>
+
+    <div class="preview-wrap">
+      <iframe src="option-d/index.html" title="Option D Preview" loading="eager"></iframe>
+      <a href="option-d/index.html" class="preview-open" target="_blank">Open full ↗</a>
+    </div>
+
+    <div class="card-body">
+      <div>
+        <div class="detail-label">Vibe</div>
+        <div class="tag-row">
+          <span class="chip chip-d">Bold</span>
+          <span class="chip chip-d">On-Brand</span>
+          <span class="chip chip-d">Structured</span>
+          <span class="chip chip-d">Trustworthy</span>
+          <span class="chip chip-d">Familiar</span>
+        </div>
+      </div>
+      <div>
+        <div class="detail-label">Typography</div>
+        <div class="detail-value">PT Serif + PT Sans — same fonts as the current site, but actually using the real brand yellow &amp; blue</div>
+      </div>
+      <div>
+        <div class="detail-label">Best For</div>
+        <div class="who-box">Anyone who sees the mikal.nz logo and wants the site to match it. Uses the actual brand identity consistently — yellow nav bar, blue sections, white body. Most on-brand of all options.</div>
+      </div>
+      <div>
+        <div class="detail-label">Key Features</div>
+        <ul class="feature-list">
+          <li><span class="fi fi-d">✓</span>Yellow + royal blue — the actual logo palette, finally on the site</li>
+          <li><span class="fi fi-d">✓</span>Yellow sticky nav with blue logo — unmistakeable brand</li>
+          <li><span class="fi fi-d">✓</span>Full pricing transparency — Group / 1:1 / Retreat costs shown</li>
+          <li><span class="fi fi-d">✓</span>Tabbed services + framework comparison table</li>
+          <li><span class="fi fi-d">✓</span>Free resources section with assessments &amp; book</li>
+          <li><span class="fi fi-d">✓</span>36 podcast episodes · Robert Hymes spotlight testimonial</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-foot">
+      <a href="option-d/index.html" class="open-btn btn-d" target="_blank">Open Option D in Full →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ─── NEXT STEPS ──────────────────────────────────────────── -->
+<div class="next">
+  <h2>Next Steps</h2>
+  <div class="steps">
+    <div class="step">
+      <span class="step-n">1</span>
+      <h3>Choose a Direction</h3>
+      <p>Open each option in full. Pick the one that feels most like Mikal — or mix elements from two options. Bring it back as a conversation.</p>
+    </div>
+    <div class="step">
+      <span class="step-n">2</span>
+      <h3>Provide Your Assets</h3>
+      <p>Professional headshots, book cover, podcast art, Calendly link, Anchor.fm ID, and ESP account. See swap list below.</p>
+    </div>
+    <div class="step">
+      <span class="step-n">3</span>
+      <h3>Build &amp; Launch</h3>
+      <p>The chosen mockup gets fully built — real photos, live podcast RSS, Calendly booking widget, email capture, SEO meta tags, and deployment.</p>
+    </div>
+  </div>
+
+  <div class="swap-box">
+    <h3>Assets Needed for Full Implementation</h3>
+    <div class="swap-grid">
+      <div class="swap-item">Professional headshots (portrait + candid/action)</div>
+      <div class="swap-item">Actual book cover image (from Amazon B0DJ311KH1)</div>
+      <div class="swap-item">Podcast cover art (Spotify/Apple size)</div>
+      <div class="swap-item">Anchor.fm podcast ID (for RSS episode auto-feed)</div>
+      <div class="swap-item">Calendly link (or preferred booking tool)</div>
+      <div class="swap-item">ESP account — ConvertKit / Mailchimp (email capture)</div>
+      <div class="swap-item">GeniusU referral link (Wealth Dynamics quiz, Option B)</div>
+      <div class="swap-item">Client photos + name permissions (testimonials)</div>
+      <div class="swap-item">Speaking event photos (if available)</div>
+      <div class="swap-item">Real episode titles/descriptions (once RSS confirmed)</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const IFRAME_WIDTH = 1440;
+
+  function scaleWrap(wrap) {
+    const iframe = wrap.querySelector('iframe');
+    if (!iframe) return;
+    const w = wrap.getBoundingClientRect().width;
+    if (!w) return;
+    const h = wrap.getBoundingClientRect().height;
+    const scale = w / IFRAME_WIDTH;
+    iframe.style.width  = IFRAME_WIDTH + 'px';
+    iframe.style.height = Math.ceil(h / scale) + 'px';
+    iframe.style.transform = 'scale(' + scale + ')';
+  }
+
+  function scaleAll() {
+    document.querySelectorAll('.preview-wrap').forEach(scaleWrap);
+  }
+
+  // Fire at several points — layout, fonts, images, iframes all settle at different times
+  document.addEventListener('DOMContentLoaded', scaleAll);
+  window.addEventListener('load', scaleAll);
+  window.addEventListener('resize', scaleAll);
+  [100, 300, 800, 2000].forEach(ms => setTimeout(scaleAll, ms));
+
+  // ResizeObserver catches grid reflows (e.g. scrollbar appearing, sidebar collapse)
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(scaleAll);
+    document.querySelectorAll('.preview-wrap').forEach(el => ro.observe(el));
+  }
+
+  // Re-scale each iframe once its own content has loaded
+  document.querySelectorAll('.preview-wrap iframe').forEach(iframe => {
+    iframe.addEventListener('load', () => scaleWrap(iframe.closest('.preview-wrap')));
+  });
+</script>
+</body>
+</html>

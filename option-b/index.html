@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mikal Nielsen — Mental Fitness Coach | Option B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:  #1c1c1e;
+      --teal:   #00d4aa;
+      --teal-dark: #00a882;
+      --teal-dim: rgba(0,212,170,0.12);
+      --white:  #ffffff;
+      --grey:   #8a8a8a;
+      --grey-light: #2a2a2e;
+      --grey-mid: #3a3a3e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: rgba(28,28,30,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo span { color: var(--teal); }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--teal); color: var(--black) !important;
+      padding: 0.6rem 1.4rem; border-radius: 6px;
+      font-weight: 700 !important; transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--teal-dark) !important; color: var(--black) !important; }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      gap: 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 50%; height: 100%;
+      background: linear-gradient(135deg, var(--grey-light) 0%, #0f0f11 100%);
+      clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .hero-text { position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--teal-dim); border: 1px solid rgba(0,212,170,0.3);
+      color: var(--teal); padding: 0.4rem 1rem; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal); display: block;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -0.04em; margin-bottom: 1.5rem;
+    }
+    .hero h1 .accent { color: var(--teal); display: block; }
+    .hero-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,0.65);
+      max-width: 480px; margin-bottom: 2.5rem; font-weight: 300;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block; background: var(--teal); color: var(--black);
+      padding: 0.9rem 2rem; border-radius: 8px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      transition: all 0.2s; letter-spacing: 0.01em;
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--white); text-decoration: none;
+      padding: 0.9rem 1.5rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+    .btn-secondary svg { width: 18px; height: 18px; }
+    .hero-media {
+      position: relative; z-index: 2;
+      display: flex; justify-content: center;
+    }
+    .hero-photo-wrap {
+      position: relative; width: 100%; max-width: 480px;
+    }
+    .hero-photo {
+      width: 100%; border-radius: 12px;
+      /* SWAP: Replace with Mikal's professional headshot */
+      aspect-ratio: 3/4; object-fit: cover;
+      background: var(--grey-light);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+    .hero-stat-card {
+      position: absolute; bottom: -1.5rem; left: -2rem;
+      background: var(--grey-light); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 1rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--teal); line-height: 1; }
+    .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); font-weight: 500; }
+    .hero-stat-card-2 {
+      position: absolute; top: 2rem; right: -2rem;
+      background: var(--grey-light); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 1rem 1.4rem;
+    }
+    .media-logos {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 3rem;
+    }
+    .media-tag {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem;
+      border-radius: 4px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTION SHELL ───────────────────────────────────── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.55); max-width: 540px;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+
+    /* ─── MENTAL FITNESS ──────────────────────────────────── */
+    .mental-fitness {
+      background: var(--grey-light);
+    }
+    .mf-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .mf-card {
+      background: var(--black); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .mf-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+    .mf-icon {
+      width: 52px; height: 52px; border-radius: 10px;
+      background: var(--teal-dim); border: 1px solid rgba(0,212,170,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem; color: var(--teal);
+    }
+    .mf-icon svg { width: 26px; height: 26px; }
+    .mf-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .mf-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    .services { background: var(--black); }
+    .tabs { display: flex; gap: 0.5rem; margin-bottom: 2.5rem; }
+    .tab-btn {
+      padding: 0.65rem 1.5rem; border-radius: 8px; border: none; cursor: pointer;
+      font-family: 'Sora', sans-serif; font-size: 0.875rem; font-weight: 600;
+      background: var(--grey-light); color: rgba(255,255,255,0.5);
+      transition: all 0.2s;
+    }
+    .tab-btn.active { background: var(--teal); color: var(--black); }
+    .tab-btn:hover:not(.active) { color: var(--white); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .service-content h3 {
+      font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em;
+    }
+    .service-content p { color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; line-height: 1.7; }
+    .service-features { list-style: none; margin-bottom: 2rem; }
+    .service-features li {
+      padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.75); font-size: 0.9rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .service-features li::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal); flex-shrink: 0;
+    }
+    .service-price {
+      display: inline-block;
+      background: var(--teal-dim); border: 1px solid rgba(0,212,170,0.25);
+      color: var(--teal); padding: 0.5rem 1rem; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem;
+    }
+    .service-visual {
+      background: var(--grey-light); border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.07);
+      /* SWAP: Replace with relevant photo per service */
+      aspect-ratio: 4/3; overflow: hidden;
+    }
+    .service-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ─── FRAMEWORK ───────────────────────────────────────── */
+    .framework { background: var(--grey-light); }
+    .framework-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .framework-diagram {
+      background: var(--black); border-radius: 16px; padding: 2.5rem;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .diagram-title {
+      text-align: center; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 2rem;
+    }
+    .diagram-vs {
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: stretch;
+    }
+    .diagram-col {
+      background: var(--grey-light); border-radius: 10px; padding: 1.5rem;
+    }
+    .diagram-col.highlight {
+      background: var(--teal-dim); border: 1px solid rgba(0,212,170,0.3);
+    }
+    .diagram-col h4 {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 1rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .diagram-col.highlight h4 { color: var(--teal); }
+    .diagram-col ul { list-style: none; }
+    .diagram-col ul li {
+      font-size: 0.875rem; padding: 0.35rem 0;
+      color: rgba(255,255,255,0.6);
+    }
+    .diagram-col.highlight ul li { color: rgba(255,255,255,0.85); }
+    .diagram-arrow {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--teal); font-weight: 800;
+    }
+    .framework-text h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .framework-text p { color: rgba(255,255,255,0.6); margin-bottom: 1rem; line-height: 1.7; }
+
+    /* ─── PODCAST ─────────────────────────────────────────── */
+    .podcast { background: var(--black); }
+    .podcast-featured {
+      background: var(--grey-light); border-radius: 16px; padding: 2.5rem;
+      border: 1px solid rgba(255,255,255,0.07);
+      display: grid; grid-template-columns: 1fr 2fr; gap: 2.5rem;
+      align-items: center; margin-bottom: 3rem;
+    }
+    .podcast-art {
+      aspect-ratio: 1; border-radius: 12px; overflow: hidden;
+      background: linear-gradient(135deg, var(--teal-dim), var(--grey-mid));
+      border: 1px solid rgba(0,212,170,0.2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* SWAP: Replace podcast-art background with actual podcast cover art */
+    .podcast-art-inner { text-align: center; }
+    .podcast-art-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+    .podcast-art-text { font-size: 0.75rem; font-weight: 700; color: var(--teal); letter-spacing: 0.06em; }
+    .podcast-info h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .podcast-info .show-name { color: var(--teal); font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+    .podcast-info p { color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .podcast-platforms { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .platform-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1rem; border-radius: 6px;
+      font-size: 0.8rem; font-weight: 600; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .platform-spotify { background: #1DB954; color: #000; }
+    .platform-apple { background: #fc3c44; color: #fff; }
+    .platform-youtube { background: #ff0000; color: #fff; }
+    .platform-link:hover { opacity: 0.85; transform: translateY(-1px); }
+    .podcast-episodes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .episode-card {
+      background: var(--grey-light); border-radius: 10px; padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.06); transition: all 0.2s;
+    }
+    .episode-card:hover { border-color: var(--teal); }
+    .episode-num { font-size: 0.7rem; color: var(--teal); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    .episode-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.4; }
+    .episode-dur { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+    /* NOTE: Episode data should be auto-fetched from RSS feed:
+       https://anchor.fm/s/[anchor-id]/podcast/rss
+       Mikal's Spotify Show ID: 0J6Fym5smsiD4i4WIGUUTv */
+
+    /* ─── BOOK ────────────────────────────────────────────── */
+    .book { background: var(--grey-light); }
+    .book-inner {
+      display: grid; grid-template-columns: auto 1fr; gap: 5rem; align-items: center;
+    }
+    .book-cover {
+      width: 220px; flex-shrink: 0;
+      background: var(--black); border-radius: 8px;
+      box-shadow: -8px 8px 0 var(--teal-dark), 24px 24px 60px rgba(0,0,0,0.5);
+      /* SWAP: Replace with actual book cover image from Amazon product listing */
+      aspect-ratio: 2/3; display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem; text-align: center; border: 1px solid rgba(255,255,255,0.1);
+    }
+    .book-cover-text { font-size: 0.75rem; color: rgba(255,255,255,0.4); line-height: 1.4; }
+    .book-content .section-label { margin-bottom: 0.5rem; }
+    .book-content h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem;
+    }
+    .book-content h2 em { color: var(--teal); font-style: normal; }
+    .book-pullquote {
+      border-left: 3px solid var(--teal); padding-left: 1.5rem;
+      font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.75);
+      margin: 1.5rem 0; line-height: 1.6;
+    }
+    .book-content p { color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; line-height: 1.7; }
+
+    /* ─── METRICS / TESTIMONIALS ──────────────────────────── */
+    .results { background: var(--black); }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; margin-bottom: 4rem; }
+    .metric {
+      background: var(--grey-light); padding: 2rem; text-align: center;
+    }
+    .metric-value { font-size: 2.5rem; font-weight: 800; color: var(--teal); line-height: 1; margin-bottom: 0.5rem; }
+    .metric-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; line-height: 1.4; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .testimonial-card {
+      background: var(--grey-light); border-radius: 12px; padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .testimonial-card blockquote {
+      font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.7;
+      margin-bottom: 1.5rem; font-style: italic;
+    }
+    .testimonial-card blockquote::before { content: '"'; color: var(--teal); font-size: 1.5rem; line-height: 0; vertical-align: -0.4em; margin-right: 0.25rem; }
+    .client-info { display: flex; align-items: center; gap: 0.75rem; }
+    .client-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--grey-mid); flex-shrink: 0;
+      border: 2px solid var(--teal);
+      /* SWAP: Replace with real client photo if permitted */
+    }
+    .client-name { font-size: 0.875rem; font-weight: 700; }
+    .client-role { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+    /* ─── ASSESSMENT CTA ──────────────────────────────────── */
+    .assessment {
+      background: linear-gradient(135deg, var(--teal-dim) 0%, rgba(0,212,170,0.03) 100%);
+      border-top: 1px solid rgba(0,212,170,0.15); border-bottom: 1px solid rgba(0,212,170,0.15);
+    }
+    .assessment-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .assessment-text h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .assessment-text p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; line-height: 1.7; }
+    .assessment-card {
+      background: var(--grey-light); border-radius: 16px; padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .assessment-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .assessment-card p { font-size: 0.875rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+    .quiz-teaser { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .quiz-option {
+      background: var(--black); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px; padding: 0.75rem 1rem;
+      font-size: 0.875rem; color: rgba(255,255,255,0.6);
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .quiz-option .dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); flex-shrink: 0; }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    .about { background: var(--black); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-photo {
+      position: relative;
+    }
+    .about-photo-frame {
+      border-radius: 12px; overflow: hidden;
+      /* SWAP: Replace with Mikal's full-body or action shot */
+      aspect-ratio: 4/5; background: var(--grey-light);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .about-badge {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      background: var(--teal); color: var(--black);
+      padding: 1.25rem; border-radius: 12px; text-align: center;
+      font-weight: 800;
+    }
+    .about-badge .big { font-size: 2rem; line-height: 1; display: block; }
+    .about-badge .small { font-size: 0.7rem; font-weight: 600; }
+    .about-content h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .about-content p { color: rgba(255,255,255,0.6); margin-bottom: 1rem; line-height: 1.7; }
+    .timeline { margin-top: 2rem; border-left: 2px solid rgba(255,255,255,0.08); padding-left: 1.5rem; }
+    .timeline-item { position: relative; padding-bottom: 1.25rem; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -1.9rem; top: 0.4rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--teal); border: 2px solid var(--black);
+    }
+    .timeline-year { font-size: 0.75rem; color: var(--teal); font-weight: 700; margin-bottom: 0.2rem; }
+    .timeline-event { font-size: 0.875rem; color: rgba(255,255,255,0.65); }
+
+    /* ─── NEWSLETTER ──────────────────────────────────────── */
+    .newsletter { background: var(--grey-light); }
+    .newsletter-inner {
+      max-width: 560px; margin: 0 auto; text-align: center;
+    }
+    .newsletter-inner h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .newsletter-inner p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; }
+    .newsletter-form { display: flex; gap: 0.75rem; }
+    .newsletter-form input {
+      flex: 1; padding: 0.85rem 1.25rem; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--black); color: var(--white);
+      font-family: 'Sora', sans-serif; font-size: 0.9rem;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .newsletter-form input:focus { outline: none; border-color: var(--teal); }
+    /* NOTE: Wire newsletter form to ConvertKit, Mailchimp, or similar ESP */
+    .newsletter-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 1rem; }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: #111112; border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 4rem 4rem 2rem;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .footer-brand h3 span { color: var(--teal); }
+    .footer-brand p { font-size: 0.875rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 260px; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--teal); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06); padding-top: 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem; color: rgba(255,255,255,0.3);
+    }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; font-size: 0.8rem; }
+    .footer-social a:hover { color: var(--teal); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; min-height: auto; gap: 2rem; }
+      .hero::before { display: none; }
+      .mf-grid { grid-template-columns: 1fr; }
+      .tab-panel.active { grid-template-columns: 1fr; }
+      .framework-grid { grid-template-columns: 1fr; }
+      .book-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .book-cover { width: 160px; margin: 0 auto; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .assessment-inner { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; }
+      .podcast-featured { grid-template-columns: 1fr; }
+      .podcast-episodes { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .newsletter-form { flex-direction: column; }
+      footer { padding: 3rem 1.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">Mikal<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#podcast">Podcast</a></li>
+    <li><a href="#book">Book</a></li>
+    <li><a href="#about">About</a></li>
+    <!-- SWAP: Replace "#" with Calendly embed or booking page URL -->
+    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ───────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-badge">Mental Fitness Coach &amp; Author</div>
+    <h1>
+      Transform Your To-Do List.
+      <span class="accent">Reclaim Your Life.</span>
+    </h1>
+    <p class="hero-sub">
+      Helping business owners and leaders transform their To-Do Lists in ways that leave them satisfied — with time to spare, every single day.
+    </p>
+    <div class="hero-ctas">
+      <!-- SWAP: Link to Calendly or contact form -->
+      <a href="#contact" class="btn-primary">Start Your Transformation</a>
+      <a href="https://open.spotify.com/show/0J6Fym5smsiD4i4WIGUUTv" class="btn-secondary" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Listen to the Podcast
+      </a>
+    </div>
+    <div class="media-logos">
+      <span class="media-tag">NZ National TV</span>
+      <span class="media-tag">Radio NZ</span>
+      <span class="media-tag">NZ Herald</span>
+      <span class="media-tag">Keynote Speaker</span>
+      <span class="media-tag">Amazon Author</span>
+    </div>
+  </div>
+  <div class="hero-media">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <!-- SWAP: Replace src with Mikal's professional headshot -->
+        <img src="../assets/images/mikal-headshot-studio.jpeg" alt="Mikal Nielsen — Mental Fitness Coach" />
+      </div>
+      <div class="hero-stat-card">
+        <div>
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Years coaching<br>experience</div>
+        </div>
+      </div>
+      <div class="hero-stat-card-2">
+        <div class="stat-number" style="font-size:1.5rem">35+</div>
+        <div class="stat-label" style="font-size:0.7rem;color:rgba(255,255,255,0.5)">Years studying<br>the mind</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PAIN-POINT CALLOUT ────────────────────────────────────── -->
+<div style="background:var(--teal);padding:3.5rem 4rem;text-align:center;">
+  <p style="font-family:'Sora',sans-serif;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:600;color:#000;line-height:1.6;max-width:860px;margin:0 auto;">
+    &#8220;As a business owner or business leader, are you experiencing stress and frustration with a To-Do List longer than your day and not able to get on top of things, limiting the potential of your business and quality time for yourself and your family?&#8221;
+  </p>
+</div>
+
+<!-- ─── WHAT IS MENTAL FITNESS? ───────────────────────────── -->
+<section class="mental-fitness" id="approach">
+  <div class="section-header">
+    <div class="section-label">The Foundation</div>
+    <h2 class="section-title">What is Mental Fitness?</h2>
+    <p class="section-sub">
+      Just like physical fitness, mental fitness is trainable. It's the foundation that determines everything else — your focus, your resilience, and your performance under pressure.
+    </p>
+  </div>
+  <div class="mf-grid">
+    <div class="mf-card">
+      <div class="mf-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>Focus</h3>
+      <p>Clarity of purpose and attention. When you manage yourself rather than your time, focus becomes effortless — not something you force.</p>
+    </div>
+    <div class="mf-card">
+      <div class="mf-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Resilience</h3>
+      <p>The ability to bend without breaking. Mentally fit people recover faster, adapt quicker, and perform consistently even under pressure.</p>
+    </div>
+    <div class="mf-card">
+      <div class="mf-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <h3>Performance</h3>
+      <p>Sustainable, high-level output. Not the grind — the flow. When your mind is tuned, performance becomes a natural byproduct, not a struggle.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ───────────────────────────────────────────── -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-label">How We Work Together</div>
+    <h2 class="section-title">Choose Your Path</h2>
+    <p class="section-sub">Every engagement is tailored. Whether you're an individual high-performer or leading an organisation, there's a program built for you.</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('individuals', this)">For Individuals</button>
+    <button class="tab-btn" onclick="switchTab('businesses', this)">For Businesses</button>
+    <button class="tab-btn" onclick="switchTab('speaking', this)">Speaking</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-individuals">
+    <div class="service-content">
+      <h3>Individual Coaching</h3>
+      <p>One-on-one coaching for business owners and leaders who want to perform at their best — without burning out. Sessions on Zoom or in-person in Auckland and Northland.</p>
+      <ul class="service-features">
+        <li>1–2 hour sessions, typically weekly</li>
+        <li>Zoom or in-person (Auckland &amp; Northland)</li>
+        <li>Wealth Dynamics / Wealth Spectrum profiling</li>
+        <li>Life Time Systems framework</li>
+        <li>Ongoing WhatsApp/email support between sessions</li>
+      </ul>
+      <div class="service-price">Investment: $1,000–$2,000/month</div>
+      <a href="#contact" class="btn-primary">Book a Discovery Call</a>
+    </div>
+    <div class="service-visual">
+      <!-- SWAP: Replace with photo of coaching session or Mikal on Zoom -->
+      <img src="../assets/images/mikal-headshot-brick.jpeg" alt="Individual coaching session" />
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-businesses">
+    <div class="service-content">
+      <h3>Business &amp; Team Coaching</h3>
+      <p>Coaching for business owners and their teams. From trades to technology, services to education — Mikal works with leaders across all industries to build mentally fit organisations.</p>
+      <ul class="service-features">
+        <li>1:1 coaching for the business owner / CEO</li>
+        <li>Team workshops and group programs</li>
+        <li>Wealth Dynamics profiling for the whole team</li>
+        <li>Performance culture frameworks</li>
+        <li>Auckland, Northland, and Zoom internationally</li>
+      </ul>
+      <div class="service-price">Investment: $1,000–$2,000/month</div>
+      <a href="#contact" class="btn-primary">Talk About Your Business</a>
+    </div>
+    <div class="service-visual">
+      <!-- SWAP: Replace with photo of business/team context -->
+      <img src="../assets/images/nz-landscape-mountains.jpg" alt="Business coaching" />
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-speaking">
+    <div class="service-content">
+      <h3>Keynote &amp; Speaking</h3>
+      <p>Mikal is an international keynote speaker who challenges audiences to rethink everything they believe about time, performance, and success. Engaging, provocative, and practical.</p>
+      <ul class="service-features">
+        <li>Keynote: "Time Management is a Complete Waste of Time"</li>
+        <li>Workshop: Mental Fitness for Business Performance</li>
+        <li>Featured on NZ National TV, Radio, newspapers &amp; magazines</li>
+        <li>Available for corporate events, conferences, and retreats</li>
+        <li>NZ-wide and international engagements</li>
+      </ul>
+      <!-- SWAP: Add Mikal's speaking inquiry/booking contact -->
+      <div style="display:inline-flex;align-items:center;gap:0.6rem;background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);border-radius:6px;padding:0.5rem 0.9rem;margin-bottom:1.25rem;">
+        <img src="../assets/images/speakin-certificate.png" alt="SpeakIn Certified" style="height:24px;width:auto;object-fit:contain;" />
+        <span style="font-size:0.75rem;font-weight:600;color:#444;letter-spacing:0.03em;">Empanelled with SpeakIn — World&#8217;s Largest Speaker Bureau · 30+ Countries</span>
+      </div>
+      <a href="mailto:info@mikal.nz" class="btn-primary">Enquire About Speaking</a>
+    </div>
+    <div class="service-visual">
+      <!-- SWAP: Replace with photo of Mikal speaking at an event -->
+      <img src="../assets/images/mikal-headshot-outdoor.jpeg" alt="Mikal speaking at a conference" />
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE FRAMEWORK ──────────────────────────────────────── -->
+<section class="framework" id="framework">
+  <div class="framework-grid">
+    <div>
+      <div class="section-label">The Life Time Systems Method</div>
+      <h2 class="section-title">Self-Management Beats Time Management. Every Time.</h2>
+      <p style="color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:1rem">
+        Most people are taught that to achieve more, they need to manage their time better. More apps. More schedules. More discipline. It doesn't work.
+      </p>
+      <p style="color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:1rem">
+        Mikal's Life Time Systems methodology flips this entirely. When you manage yourself — your values, your energy, your mindset — time organises itself. The result is less stress, more control, and a business that actually gives you life.
+      </p>
+      <a href="#contact" class="btn-primary" style="margin-top:0.5rem">Discover How It Works</a>
+    </div>
+    <div class="framework-diagram">
+      <div class="diagram-title">The Shift — From Time Management to Self-Management</div>
+      <div class="diagram-vs">
+        <div class="diagram-col">
+          <h4>Old Way</h4>
+          <ul>
+            <li>Manage your calendar</li>
+            <li>More apps &amp; systems</li>
+            <li>Productivity hacks</li>
+            <li>Work harder / longer</li>
+            <li>Burnout &amp; stress</li>
+            <li>Clock-watching</li>
+          </ul>
+        </div>
+        <div class="diagram-arrow">→</div>
+        <div class="diagram-col highlight">
+          <h4>Life Time Systems</h4>
+          <ul>
+            <li>Manage your mindset</li>
+            <li>Values alignment</li>
+            <li>Inner well-being</li>
+            <li>Flow &amp; focus</li>
+            <li>Sustained performance</li>
+            <li>Peace &amp; clarity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PODCAST ────────────────────────────────────────────── -->
+<section class="podcast" id="podcast">
+  <div class="section-header">
+    <div class="section-label">The Show</div>
+    <h2 class="section-title">Mental Fitness — the Gateway to Success</h2>
+    <p class="section-sub">Season 2 now live. Real conversations about the mind, performance, and what it really takes to build a life and business you love.</p>
+  </div>
+
+  <div class="podcast-featured">
+    <div class="podcast-art">
+      <!-- SWAP: Replace with actual podcast cover art image -->
+      <div class="podcast-art-inner">
+        <div class="podcast-art-icon">🧠</div>
+        <div class="podcast-art-text">MENTAL FITNESS</div>
+      </div>
+    </div>
+    <div class="podcast-info">
+      <div class="show-name">Mental Fitness — the Gateway to Success · Season 2</div>
+      <h3>Available on Spotify, Apple Podcasts &amp; YouTube</h3>
+      <p>Mikal's podcast explores the intersection of mind, business, and performance — with no fluff, no hype. Just honest insight from 30+ years of coaching experience.</p>
+      <div class="podcast-platforms">
+        <a href="https://open.spotify.com/show/0J6Fym5smsiD4i4WIGUUTv" class="platform-link platform-spotify" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          Spotify
+        </a>
+        <a href="https://apple.co/4keHyjf" class="platform-link platform-apple" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Apple Podcasts
+        </a>
+        <a href="https://www.youtube.com/watch?v=kMZ_c7WypzU" class="platform-link platform-youtube" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTE: Auto-fetch from RSS feed once Anchor.fm ID confirmed. Spotify Show ID: 0J6Fym5smsiD4i4WIGUUTv -->
+  <div class="podcast-episodes">
+    <div class="episode-card">
+      <div class="episode-num">EP36 · SEASON 2 · LATEST</div>
+      <div class="episode-title">Wealth Dynamics: How One Test Changed My Life and Business</div>
+      <div class="episode-dur">Season 2</div>
+    </div>
+    <div class="episode-card">
+      <div class="episode-num">EP35 · SEASON 2</div>
+      <div class="episode-title">20 Years of Experience in Just 6 Years: James Lang's Radical Business Pivot</div>
+      <div class="episode-dur">Season 2</div>
+    </div>
+    <div class="episode-card">
+      <div class="episode-num">EP34 · SEASON 2</div>
+      <div class="episode-title">How Mental Fitness Unlocks Success &amp; Fixes Mental Health</div>
+      <div class="episode-dur">Season 2</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOK ───────────────────────────────────────────────── -->
+<section class="book" id="book">
+  <div class="book-inner">
+    <div class="book-cover">
+      <!-- SWAP: Replace with actual book cover image
+           Source from: https://www.amazon.com/dp/B0DJ311KH1
+           Or use: https://images-na.ssl-images-amazon.com/images/P/B0DJ311KH1.01.LZZZZZZZ.jpg -->
+      <div class="book-cover-text">
+        <strong style="color:var(--teal);font-size:0.85rem;display:block;margin-bottom:0.5rem">BOOK COVER</strong>
+        Time Management: A Complete Waste of Time
+        <br /><br />
+        <small>Swap with real cover image</small>
+      </div>
+    </div>
+    <div class="book-content">
+      <div class="section-label">New Book</div>
+      <h2>Time Management:<br /><em>A Complete Waste of Time</em></h2>
+      <div class="book-pullquote">
+        "Stop managing your time. Start managing yourself. The results will follow."
+      </div>
+      <p>
+        For Business Owners, Leaders, and Teams. Mikal's provocative, practical book challenges the entire productivity industry — and offers something far more powerful in its place. Less stress. More control. Inner peace.
+      </p>
+      <a href="https://www.amazon.com/dp/B0DJ311KH1" class="btn-primary" target="_blank">Get the Book on Amazon</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESULTS & TESTIMONIALS ─────────────────────────────── -->
+<section class="results" id="testimonials">
+  <div class="section-header">
+    <div class="section-label">The Results</div>
+    <h2 class="section-title">Numbers That Matter</h2>
+  </div>
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-value">30+</div>
+      <div class="metric-label">Years coaching business owners &amp; leaders</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">35+</div>
+      <div class="metric-label">Years studying the mind</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">S2</div>
+      <div class="metric-label">Podcast — Mental Fitness<br>Season 2 now live</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">NZ</div>
+      <div class="metric-label">National TV, Radio, newspapers &amp; magazines</div>
+    </div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <blockquote>
+        Besides my father, Mikal has been the greatest male influence on my life. He has helped me point me in my right direction and to learn to be at peace with myself.
+      </blockquote>
+      <div class="client-info">
+        <div class="client-avatar"></div>
+        <div>
+          <div class="client-name">Phil Hall</div>
+          <div class="client-role">Owner, Hall Electricals</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <blockquote>
+        I cannot understate the value of using Mikal to help you achieve all the success you desire. In a very short time I achieved personal and financial goals that had been on my To-Do list for two years.
+      </blockquote>
+      <div class="client-info">
+        <div class="client-avatar"></div>
+        <div>
+          <div class="client-name">Howie Clare</div>
+          <div class="client-role">Managing Director, BulletPoint Marketing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Robert Hymes spotlight testimonial -->
+  <div style="margin-top:2rem; background:rgba(0,212,170,0.06); border:1px solid rgba(0,212,170,0.2); border-radius:16px; padding:3rem 3.5rem; position:relative; overflow:hidden;">
+    <div style="position:absolute;top:-1.5rem;left:1rem;font-size:10rem;color:rgba(0,212,170,0.1);line-height:1;pointer-events:none;font-style:italic;">&#8220;</div>
+    <div style="position:relative;max-width:780px;margin:0 auto;text-align:center;">
+      <blockquote style="font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.8;font-style:italic;margin-bottom:2rem;">
+        &#8220;When I first met Mikal, I felt like my work-life balance was totally askew. I was on the verge of losing my marriage, my family, my career, and my health. Now, sitting here reflecting 2.5 years later, I am a new man, rejuvenated, aligned with my natural instincts. Mikal&#8217;s teaching style is not instructive — he&#8217;s more of a guide, asking challenging questions and nudging towards an outcome that comes from within, not of his own predetermination. I wouldn&#8217;t hesitate to recommend it to anyone seeking to elevate themselves and their experience on this planet.&#8221;
+      </blockquote>
+      <div style="display:flex;align-items:center;justify-content:center;gap:0.75rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:#000;">RH</div>
+        <div style="text-align:left;">
+          <div style="font-size:0.85rem;font-weight:700;color:var(--teal);">Robert Hymes</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);">Co-Owner &amp; Founder, MYNT Systems — California, US &middot; 2.5 years coaching</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- NOTE: Embed video testimonials here from existing mikal.nz/testimonials page -->
+</section>
+
+<!-- ─── ASSESSMENT CTA ──────────────────────────────────────── -->
+<section class="assessment" id="assessment">
+  <div class="assessment-inner">
+    <div class="assessment-text">
+      <div class="section-label">Lead Magnet</div>
+      <h2>Discover Your Wealth Dynamics Profile</h2>
+      <p>
+        Understand your natural genius, your flow state, and exactly how you're wired to create value. The Wealth Dynamics profile is the foundation Mikal uses with every client — and you can start today.
+      </p>
+      <!-- SWAP: Link to Mikal's GeniusU referral page for Wealth Dynamics test -->
+      <a href="#contact" class="btn-primary">Take the Free Assessment</a>
+    </div>
+    <div class="assessment-card">
+      <h4>Quick Preview: What's your flow state?</h4>
+      <p>How do you naturally create value? Pick what resonates most:</p>
+      <div class="quiz-teaser">
+        <div class="quiz-option"><span class="dot"></span>I create through big-picture vision and strategy</div>
+        <div class="quiz-option"><span class="dot"></span>I create through deep focus and systems</div>
+        <div class="quiz-option"><span class="dot"></span>I create through relationships and collaboration</div>
+        <div class="quiz-option"><span class="dot"></span>I create through action, deals, and momentum</div>
+      </div>
+      <!-- SWAP: Connect quiz to actual Wealth Dynamics profiling tool or intake form -->
+      <a href="#contact" class="btn-primary" style="width:100%;text-align:center;display:block">Find Out Your Profile →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ───────────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-photo">
+      <div class="about-photo-frame">
+        <!-- SWAP: Replace with a warm, candid photo of Mikal — ideally in action or outdoors -->
+        <img src="../assets/images/mikal-headshot-brick.jpeg" alt="Mikal Nielsen" />
+      </div>
+      <div class="about-badge">
+        <span class="big">30+</span>
+        <span class="small">Years<br>Coaching</span>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">About Mikal</div>
+      <h2>The Mind Mechanic</h2>
+      <p>Born in Denmark, Mikal Nielsen went from super shy, withdrawn and bullied child to confident public speaker, presenter and coach — following a transformative experience at age 27 that set him on a 35+ year journey of discovery.</p>
+      <p>He describes himself as "an earth citizen, not belonging to any country, culture, religion or political orientation." He's visited over 50 countries, married a New Zealander, and now coaches from Ruakaka, Northland — and globally via Zoom.</p>
+      <p>His coaching is focused on <strong>depth rather than width</strong>. He has appeared on NZ National TV, Radio, in newspapers and magazines, and authored four books (two published).</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">Denmark</div>
+          <div class="timeline-event">Born — shy, withdrawn child who would one day coach thousands</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Age 27</div>
+          <div class="timeline-event">Transformative experience begins a 35+ year personal development journey</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">30+ Years</div>
+          <div class="timeline-event">Coaching business owners, leaders, and teams worldwide</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">New Zealand</div>
+          <div class="timeline-event">Settled in Ruakaka, Northland — coaching NZ and globally via Zoom</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2026</div>
+          <div class="timeline-event">Season 2 of "Mental Fitness — the Gateway to Success" podcast live</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEWSLETTER ─────────────────────────────────────────── -->
+<section class="newsletter" id="contact">
+  <div class="newsletter-inner">
+    <div class="section-label">Stay Sharp</div>
+    <h2>Weekly Mental Fitness Insights</h2>
+    <p>No fluff. No hype. Just practical insight from 30 years of coaching at the sharp end of business and performance.</p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="Your email address" />
+      <!-- SWAP: Wire this form to ConvertKit, Mailchimp, or your preferred ESP -->
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+    <p class="newsletter-note">No spam. Unsubscribe any time. Read by leaders across NZ and internationally.</p>
+
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06)">
+      <p style="color:rgba(255,255,255,0.55);margin-bottom:1rem">Ready to start? Book a free 30-minute discovery call.</p>
+      <!-- SWAP: Replace href with Calendly embed link or booking page -->
+      <a href="mailto:info@mikal.nz" class="btn-primary">Book a Discovery Call</a>
+      <p style="margin-top:1rem;font-size:0.8rem;color:rgba(255,255,255,0.3)">Or email directly: <a href="mailto:info@mikal.nz" style="color:var(--teal);text-decoration:none">info@mikal.nz</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Mikal<span>.</span></h3>
+      <p>Transformational coaching for business owners, leaders, and teams who want more life out of life and more business out of business.</p>
+      <p style="margin-top:1rem;font-size:0.8rem;color:rgba(255,255,255,0.3)">Based in Auckland &amp; Northland, New Zealand.<br>Coaching globally via Zoom.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Individual Coaching</a></li>
+        <li><a href="#services">Business Coaching</a></li>
+        <li><a href="#services">Speaking &amp; Keynotes</a></li>
+        <li><a href="#assessment">Wealth Dynamics</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Content</h4>
+      <ul>
+        <li><a href="https://open.spotify.com/show/0J6Fym5smsiD4i4WIGUUTv" target="_blank">Podcast (Spotify)</a></li>
+        <li><a href="https://apple.co/4keHyjf" target="_blank">Podcast (Apple)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=kMZ_c7WypzU" target="_blank">YouTube</a></li>
+        <li><a href="https://www.amazon.com/dp/B0DJ311KH1" target="_blank">The Book</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:info@mikal.nz">info@mikal.nz</a></li>
+        <li><a href="https://www.linkedin.com/in/mikalnielsen/" target="_blank">LinkedIn</a></li>
+        <!-- SWAP: Add Calendly link when set up -->
+        <li><a href="mailto:info@mikal.nz">Book a Call</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Mikal Nielsen. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/mikalnielsen/" target="_blank">LinkedIn</a>
+      <a href="https://open.spotify.com/show/0J6Fym5smsiD4i4WIGUUTv" target="_blank">Spotify</a>
+      <a href="https://www.youtube.com/watch?v=kMZ_c7WypzU" target="_blank">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

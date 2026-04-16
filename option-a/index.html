@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mikal Nielsen — Transformational Coach | Option A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1a2744;
+      --navy-mid: #243258;
+      --navy-light: #2e3f6e;
+      --offwhite: #f8f4ef;
+      --gold:    #c9a96e;
+      --gold-light: #dfc08a;
+      --gold-dim: rgba(201,169,110,0.15);
+      --text:    #2c2c2c;
+      --text-mid: #5a5a5a;
+      --text-light: #8a8a8a;
+      --white:   #ffffff;
+      --divider: rgba(0,0,0,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--offwhite);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 5rem;
+      background: rgba(248,244,239,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600; letter-spacing: 0.05em;
+      color: var(--navy); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 3rem; align-items: center; list-style: none; }
+    .nav-links a {
+      color: var(--text-mid); text-decoration: none;
+      font-size: 0.825rem; font-weight: 500; letter-spacing: 0.04em;
+      text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+      background: var(--navy); color: var(--offwhite) !important;
+      padding: 0.65rem 1.5rem; letter-spacing: 0.06em !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--navy-mid) !important; }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      /* SWAP: Replace with Mikal's full-screen professional photo — ideally outdoors/NZ setting */
+      background: linear-gradient(160deg, #2a3a60 0%, #1a2744 40%, #0f1a30 100%);
+    }
+    .hero-bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,39,68,0.95) 0%, rgba(26,39,68,0.3) 60%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 5rem 5rem 6rem; max-width: 780px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 600; line-height: 1.0;
+      color: var(--white); letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-content h1 em { color: var(--gold); font-style: italic; }
+    .hero-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.7);
+      max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.7;
+    }
+    .hero-ctas { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
+    .btn-gold {
+      display: inline-block; background: var(--gold); color: var(--navy);
+      padding: 1rem 2.25rem;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.25s;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-ghost {
+      display: inline-block; color: rgba(255,255,255,0.8);
+      padding: 1rem 0;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; border-bottom: 1px solid rgba(201,169,110,0.4);
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; right: 5rem; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.35); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .hero-scroll::after {
+      content: ''; width: 1px; height: 40px; background: rgba(201,169,110,0.4); display: block;
+    }
+
+    /* ─── MEDIA BAR ───────────────────────────────────────── */
+    .media-bar {
+      background: var(--navy); padding: 1.5rem 5rem;
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .media-label {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold); white-space: nowrap;
+    }
+    .media-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+    .media-items { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .media-item {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.45); text-transform: uppercase;
+    }
+
+    /* ─── SECTION SHELL ───────────────────────────────────── */
+    section { padding: 7rem 5rem; }
+    .section-label {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 600; line-height: 1.1; letter-spacing: -0.01em;
+      color: var(--navy); margin-bottom: 1.25rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--text-mid); max-width: 520px; line-height: 1.7; font-weight: 300;
+    }
+
+    /* ─── THE PROBLEM ─────────────────────────────────────── */
+    .problem { background: var(--offwhite); }
+    .problem-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    }
+    .problem-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1.1;
+      color: var(--navy); margin-bottom: 1.5rem;
+    }
+    .problem-text h2 em { color: var(--gold); font-style: italic; }
+    .problem-text p { color: var(--text-mid); line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+    .problem-quote {
+      padding: 3rem; background: var(--navy); position: relative; border-radius: 2px;
+    }
+    .problem-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400; font-style: italic;
+      color: var(--white); line-height: 1.4; margin-bottom: 1.5rem;
+    }
+    .problem-quote blockquote::before { content: '\201C'; color: var(--gold); font-size: 4rem; line-height: 0; vertical-align: -1rem; margin-right: 0.25rem; }
+    .problem-quote cite {
+      font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em;
+      text-transform: uppercase; font-style: normal; font-weight: 600;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    .services { background: var(--white); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--divider); margin-top: 4rem; }
+    .service-card {
+      background: var(--white); padding: 3rem 2.5rem;
+      transition: background 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--gold); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover { background: var(--offwhite); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem; font-weight: 300; color: rgba(201,169,110,0.2);
+      line-height: 1; margin-bottom: 1.5rem; display: block;
+    }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .service-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300; }
+    .service-link {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px; transition: color 0.2s;
+    }
+    .service-link:hover { color: var(--gold); }
+    .service-price-tag {
+      font-size: 0.75rem; color: var(--text-light); margin-bottom: 1rem;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    .about { background: var(--offwhite); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
+    .about-photo { position: relative; }
+    .about-photo-frame {
+      /* SWAP: Replace with professional headshot of Mikal — portrait, warm tones */
+      aspect-ratio: 3/4; background: var(--navy-mid);
+      overflow: hidden; position: relative;
+    }
+    .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-photo-accent {
+      position: absolute; bottom: -2rem; right: -2rem;
+      width: 180px; height: 180px;
+      background: var(--gold-dim); border: 1px solid var(--gold);
+      z-index: -1;
+    }
+    .about-photo-caption {
+      position: absolute; bottom: 1.5rem; left: -3rem;
+      background: var(--navy); color: var(--white);
+      padding: 1rem 1.5rem; text-align: center;
+    }
+    .about-photo-caption .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; font-weight: 300; color: var(--gold); line-height: 1; display: block;
+    }
+    .about-photo-caption .lbl { font-size: 0.65rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase; }
+    .about-content .section-title { margin-bottom: 0.5rem; }
+    .about-content .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; color: var(--gold); font-style: italic; margin-bottom: 1.5rem;
+    }
+    .about-content p { color: var(--text-mid); line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+    .about-creds { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+    .cred-tag {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      background: var(--gold-dim); border: 1px solid rgba(201,169,110,0.3);
+      color: var(--navy); padding: 0.4rem 0.9rem;
+    }
+
+    /* ─── BOOK ────────────────────────────────────────────── */
+    .book { background: var(--navy); }
+    .book-inner { display: grid; grid-template-columns: auto 1fr; gap: 6rem; align-items: center; }
+    .book-visual { position: relative; }
+    .book-cover-img {
+      width: 240px;
+      /* SWAP: Replace with real book cover image
+         Source: https://www.amazon.com/dp/B0DJ311KH1 */
+      aspect-ratio: 2/3; background: var(--navy-mid);
+      border: 1px solid rgba(201,169,110,0.3);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem;
+      box-shadow: 8px 8px 0 var(--gold), 24px 24px 60px rgba(0,0,0,0.5);
+    }
+    .book-cover-placeholder { font-size: 0.8rem; color: rgba(255,255,255,0.3); line-height: 1.5; }
+    .book-cover-placeholder strong { color: var(--gold); display: block; margin-bottom: 0.5rem; }
+    .book-content { color: var(--white); }
+    .book-content .section-label { color: var(--gold); margin-bottom: 0.5rem; }
+    .book-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600;
+      line-height: 1.1; margin-bottom: 1rem;
+      color: var(--white);
+    }
+    .book-content h2 em { color: var(--gold); font-style: italic; }
+    .book-sub { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-bottom: 1.5rem; font-style: italic; }
+    .book-content p { color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
+    .btn-gold-outline {
+      display: inline-block; border: 1px solid var(--gold); color: var(--gold);
+      padding: 0.85rem 2rem; text-decoration: none;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.25s;
+    }
+    .btn-gold-outline:hover { background: var(--gold); color: var(--navy); }
+
+    /* ─── PODCAST ─────────────────────────────────────────── */
+    .podcast { background: var(--white); }
+    .podcast-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
+    .podcast-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--divider); }
+    .podcast-episode {
+      background: var(--white); padding: 2.5rem;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .podcast-episode:hover { background: var(--offwhite); }
+    .ep-num {
+      font-size: 0.65rem; color: var(--gold); font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; margin-bottom: 1rem; display: block;
+    }
+    .podcast-episode h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600; color: var(--navy);
+      line-height: 1.3; margin-bottom: 1rem;
+    }
+    .podcast-episode p { font-size: 0.875rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6; }
+    .ep-duration { font-size: 0.7rem; color: var(--text-light); letter-spacing: 0.06em; }
+    .podcast-platforms { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .pf-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; color: var(--text-mid); padding: 0.5rem 0;
+      border-bottom: 1px solid var(--divider); transition: all 0.2s;
+    }
+    .pf-link:hover { color: var(--navy); border-color: var(--gold); }
+
+    /* ─── TESTIMONIALS ────────────────────────────────────── */
+    .testimonials { background: var(--offwhite); }
+    .testimonials-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .testimonial {
+      padding: 3rem; background: var(--white); position: relative;
+    }
+    .testimonial::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem; line-height: 1; color: var(--gold);
+      position: absolute; top: -1rem; left: 2rem; opacity: 0.3;
+    }
+    .testimonial blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-style: italic; color: var(--navy);
+      line-height: 1.6; margin-bottom: 2rem; position: relative;
+    }
+    .client-meta { border-top: 1px solid var(--divider); padding-top: 1.25rem; }
+    .client-name { font-size: 0.8rem; font-weight: 600; color: var(--navy); letter-spacing: 0.04em; }
+    .client-role { font-size: 0.75rem; color: var(--text-light); margin-top: 0.25rem; }
+    /* NOTE: Embed Mikal's video testimonials from mikal.nz/testimonials here */
+    .video-note {
+      background: var(--navy); padding: 2.5rem; margin-top: 3rem;
+      display: flex; align-items: center; gap: 2rem;
+    }
+    .video-play {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--gold); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; cursor: pointer;
+    }
+    .video-play svg { width: 20px; height: 20px; color: var(--navy); margin-left: 3px; }
+    .video-note p { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .video-note p strong { color: var(--white); display: block; margin-bottom: 0.25rem; }
+
+    /* ─── CTA SECTION ─────────────────────────────────────── */
+    .cta-section {
+      background: var(--navy); text-align: center; padding: 8rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,169,110,0.1) 0%, transparent 70%);
+    }
+    .cta-section .section-label { color: var(--gold); }
+    .cta-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 600;
+      color: var(--white); line-height: 1.1; margin-bottom: 1.5rem;
+      letter-spacing: -0.01em; position: relative;
+    }
+    .cta-section p { color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 2.5rem; font-weight: 300; position: relative; }
+    .cta-contact { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem; position: relative; }
+    .cta-contact a { color: var(--gold); text-decoration: none; }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: #111820;
+      padding: 4rem 5rem 2rem;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem;
+      padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 600; color: var(--white); margin-bottom: 0.75rem;
+    }
+    .footer-brand p { font-size: 0.8rem; color: rgba(255,255,255,0.35); line-height: 1.8; max-width: 240px; }
+    .footer-col h4 {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.25rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.65rem; }
+    .footer-col ul li a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.825rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.75rem; color: rgba(255,255,255,0.25);
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .hero-content { padding: 5rem 1.5rem 4rem; }
+      .hero-scroll { display: none; }
+      .media-bar { padding: 1.25rem 1.5rem; }
+      .problem-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-photo-caption { left: 0; }
+      .book-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .book-cover-img { width: 180px; margin: 0 auto; }
+      .podcast-strip { grid-template-columns: 1fr; }
+      .testimonials-inner { grid-template-columns: 1fr; }
+      .cta-section { padding: 5rem 1.5rem; }
+      footer { padding: 3rem 1.5rem 2rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">Mikal Nielsen</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#book">Book</a></li>
+    <li><a href="#podcast">Podcast</a></li>
+    <!-- SWAP: Replace with Calendly link or booking page -->
+    <li><a href="#contact" class="nav-cta">Work With Me</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ───────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="../assets/images/nz-landscape-mountains.jpg" alt="Mikal Nielsen" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Transformational Coach &amp; Author · Auckland, New Zealand</span>
+    <h1>Transform Your<br />To-Do List Into<br /><em>Ease &amp; Spare Time</em></h1>
+    <p class="hero-sub">
+      Helping business owners and leaders transform their to-do lists in ways that leave them satisfied — with time to spare, every single day.
+    </p>
+    <div class="hero-ctas">
+      <!-- SWAP: Replace href with Calendly embed or discovery call booking URL -->
+      <a href="#contact" class="btn-gold">Work With Me</a>
+      <a href="https://open.spotify.com/show/0J6Fym5smsiD4i4WIGUUTv" class="btn-ghost" target="_blank">Listen to the Podcast</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ─── SOCIAL PROOF BAR ───────────────────────────────────── -->
+<div class="media-bar">
+  <span class="media-label">As featured in</span>
+  <div class="media-divider"></div>
+  <div class="media-items">
+    <span class="media-item">NZ National Television</span>
+    <span class="media-item">Radio New Zealand</span>
+    <span class="media-item">NZ Herald</span>
+    <span class="media-item">National Newspapers</span>
+    <span class="media-item">International Keynote Speaker</span>
+    <span class="media-item">Amazon Author</span>
+  </div>
+</div>
+
+<!-- ─── PAIN-POINT CALLOUT ────────────────────────────────────── -->
+<div style="background:var(--gold);padding:3.5rem 4rem;text-align:center;">
+  <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.35rem,2.5vw,1.85rem);font-weight:600;font-style:italic;color:var(--navy);line-height:1.5;max-width:860px;margin:0 auto;">
+    &#8220;As a business owner or business leader, are you experiencing stress and frustration with a To-Do List longer than your day and not able to get on top of things, limiting the potential of your business and quality time for yourself and your family?&#8221;
+  </p>
+</div>
+
+<!-- ─── THE PROBLEM ────────────────────────────────────────── -->
+<section class="problem" id="approach">
+  <div class="problem-inner">
+    <div class="problem-text">
+      <div class="section-label">The Honest Truth</div>
+      <h2>Time management is <em>a lie.</em> Here's what actually works.</h2>
+      <p>
+        For decades, we've been sold the idea that the solution to overwhelm is better time management. More calendars. Better apps. Tighter schedules. And for decades, it hasn't worked.
+      </p>
+      <p>
+        The real answer is self-management. When you understand your own mind — your values, your energy, your natural genius — time stops being the problem. You stop fighting yourself and start flowing.
+      </p>
+      <p>
+        That's what Mikal Nielsen has been teaching business owners, leaders, and teams for over 30 years.
+      </p>
+      <a href="#services" class="btn-gold" style="margin-top:1rem;display:inline-block">Explore How It Works</a>
+    </div>
+    <div class="problem-quote">
+      <blockquote>
+        A revolution in thinking and approach to life, business and intimacy is desperately needed.
+      </blockquote>
+      <cite>— Mikal Nielsen</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ───────────────────────────────────────────── -->
+<section class="services" id="services">
+  <div class="section-label">How We Work Together</div>
+  <h2 class="section-title">What Mikal Offers</h2>
+  <p class="section-sub">Every engagement begins with understanding. Whether you're an individual navigating life's complexity or a business seeking sustainable performance, there is a path.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-number">01</span>
+      <h3>For Individuals</h3>
+      <p>One-on-one transformational coaching for business owners, leaders, and high performers who want to perform at their best — sustainably, without sacrificing life.</p>
+      <p class="service-price-tag">Zoom or in-person · Auckland &amp; Northland · $1,000–$2,000/month</p>
+      <a href="#contact" class="service-link">Enquire About Individual Coaching</a>
+    </div>
+    <div class="service-card">
+      <span class="service-number">02</span>
+      <h3>For Businesses</h3>
+      <p>Coaching for business owners and their teams. From Services to Trades, technology to education — Mikal works across industries to build mentally strong organisations.</p>
+      <p class="service-price-tag">1:1 + team programs · $1,000–$2,000/month</p>
+      <a href="#contact" class="service-link">Enquire About Business Coaching</a>
+    </div>
+    <div class="service-card">
+      <span class="service-number">03</span>
+      <h3>Speaking &amp; Keynotes</h3>
+      <p>An international keynote speaker who challenges audiences to rethink their relationship with time, mind, and performance. Provocative. Practical. Memorable.</p>
+      <p class="service-price-tag">NZ-wide &amp; international · Contact for rates</p>
+      <div style="display:inline-flex;align-items:center;gap:0.6rem;background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);border-radius:6px;padding:0.5rem 0.9rem;margin-bottom:1.25rem;">
+        <img src="../assets/images/speakin-certificate.png" alt="SpeakIn Certified" style="height:24px;width:auto;object-fit:contain;" />
+        <span style="font-size:0.75rem;font-weight:600;color:#444;letter-spacing:0.03em;">Empanelled with SpeakIn — World&#8217;s Largest Speaker Bureau · 30+ Countries</span>
+      </div>
+      <a href="mailto:info@mikal.nz" class="service-link">Enquire About Speaking</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ───────────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-photo">
+      <div class="about-photo-frame">
+        <img src="../assets/images/mikal-headshot-brick.jpeg" alt="Mikal Nielsen" />
+      </div>
+      <div class="about-photo-accent"></div>
+      <div class="about-photo-caption">
+        <span class="num">30+</span>
+        <span class="lbl">Years<br>Coaching</span>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">About Mikal</div>
+      <h2 class="section-title">The Mind Mechanic</h2>
+      <div class="tagline">"Helping high performers get more life out of life"</div>
+      <p>
+        Born in Denmark, Mikal went from a super shy, withdrawn and bullied child to confident public speaker and coach — following a transformative experience at age 27. He describes himself as "an earth citizen, not belonging to any country, culture, religion or political orientation." He has visited over 50 countries and now lives in Ruakaka, Northland, New Zealand.
+      </p>
+      <p>
+        His coaching is focused on <em>depth rather than width</em>. Over 30 years he has helped business owners and leaders discover what they are here in life to do and be — and build businesses that are profoundly fulfilling for themselves and their teams.
+      </p>
+      <p>
+        Featured on NZ National TV, Radio, newspapers and magazines. Author of four books (two published). International keynote and public speaker. Creator of the Mental Fitness podcast, now in Season 2.
+      </p>
+      <div class="about-creds">
+        <span class="cred-tag">35 Years Studying the Mind</span>
+        <span class="cred-tag">30+ Years Coaching</span>
+        <span class="cred-tag">NZ National TV</span>
+        <span class="cred-tag">Keynote Speaker</span>
+        <span class="cred-tag">Published Author</span>
+        <span class="cred-tag">Wealth Dynamics Practitioner</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOK ───────────────────────────────────────────────── -->
+<section class="book" id="book">
+  <div class="book-inner">
+    <div class="book-visual">
+      <!-- SWAP: Replace placeholder with actual book cover image
+           Amazon product image URL: check https://www.amazon.com/dp/B0DJ311KH1 for image CDN URL -->
+      <div class="book-cover-img">
+        <div class="book-cover-placeholder">
+          <strong>[Book Cover]</strong>
+          Swap with real book cover image from Amazon
+        </div>
+      </div>
+    </div>
+    <div class="book-content">
+      <div class="section-label">New from Mikal Nielsen</div>
+      <h2>Time Management:<br /><em>A Complete Waste of Time</em></h2>
+      <p class="book-sub">For Business Owners, Leaders, and Teams — Instead, Discover a Better Path for Less Stress, More Control, and Inner Peace</p>
+      <p>
+        In this provocative and practical book, Mikal Nielsen dismantles the productivity myth and reveals what genuinely drives performance, peace, and sustainable success. Drawing on 30 years of coaching experience, he offers a new path — one rooted in values, self-awareness, and inner clarity.
+      </p>
+      <a href="https://www.amazon.com/dp/B0DJ311KH1" class="btn-gold-outline" target="_blank">Get the Book on Amazon →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PODCAST ────────────────────────────────────────────── -->
+<section class="podcast" id="podcast">
+  <div class="podcast-header">
+    <div>
+      <div class="section-label">Listen</div>
+      <h2 class="section-title" style="margin-bottom:0">Mental Fitness —<br>the Gateway to Success</h2>
+    </div>
+    <div class="podcast-platforms">
+      <a href="https://open.spotify.com/show/0J6Fym5smsiD4i4WIGUUTv" class="pf-link" target="_blank">Spotify ↗</a>
+      <a href="https://apple.co/4keHyjf" class="pf-link" target="_blank">Apple Podcasts ↗</a>
+      <a href="https://www.youtube.com/watch?v=kMZ_c7WypzU" class="pf-link" target="_blank">YouTube ↗</a>
+    </div>
+  </div>
+  <!-- NOTE: Auto-fetch latest 3 episodes from RSS feed when Anchor.fm ID is confirmed.
+       Mikal's Spotify Show ID: 0J6Fym5smsiD4i4WIGUUTv -->
+  <div class="podcast-strip">
+    <div class="podcast-episode">
+      <span class="ep-num">EP36 · Season 2 · Latest</span>
+      <h3>Wealth Dynamics: How One Test Changed My Life and Business</h3>
+      <p>The profiling system Mikal uses with every client — and how it changed everything for him personally.</p>
+      <span class="ep-duration">Season 2</span>
+    </div>
+    <div class="podcast-episode">
+      <span class="ep-num">EP35 · Season 2</span>
+      <h3>20 Years of Experience in Just 6 Years: James Lang's Radical Business Pivot</h3>
+      <p>A remarkable conversation about compressing growth, taking radical leaps, and mental fitness under pressure.</p>
+      <span class="ep-duration">Season 2</span>
+    </div>
+    <div class="podcast-episode">
+      <span class="ep-num">EP34 · Season 2</span>
+      <h3>How Mental Fitness Unlocks Success &amp; Fixes Mental Health</h3>
+      <p>The connection between mental fitness and mental health — plus a free Saboteur Test you can take today.</p>
+      <span class="ep-duration">Season 2</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ───────────────────────────────────────── -->
+<section class="testimonials" id="testimonials">
+  <div class="section-label">What Clients Say</div>
+  <h2 class="section-title">Transformation, in Their Words</h2>
+  <div class="testimonials-inner" style="margin-top:3rem">
+    <div class="testimonial">
+      <blockquote>
+        Mikal's presentation was thought provoking, stimulating and at one stage, spellbinding. He was a tour de force; inspiring, perceptive and intuitive. Well worth the investment attending his address.
+      </blockquote>
+      <div class="client-meta">
+        <div class="client-name">Murray Douglas</div>
+        <div class="client-role">CEO, Hawke's Bay Chamber of Commerce</div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <blockquote>
+        It has not been a quick or effortless process, but it has been the most successful personal development I've embarked on. I'm much calmer, and more effective — the increase in earnings is quite a trivial benefit compared to how much better I feel.
+      </blockquote>
+      <div class="client-meta">
+        <div class="client-name">Blair Muter</div>
+        <div class="client-role">Owner, Lumber Solutions Ltd, Matamata</div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Robert Hymes spotlight testimonial -->
+    <div style="margin-top:3rem; background:var(--navy); padding:3.5rem 4rem; position:relative; overflow:hidden;">
+      <div style="position:absolute;top:-2rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:12rem;color:rgba(201,169,110,0.15);line-height:1;pointer-events:none;">&#8220;</div>
+      <div style="position:relative;max-width:820px;margin:0 auto;text-align:center;">
+        <blockquote style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.8;margin-bottom:2rem;">
+          When I first met Mikal, I felt like my work-life balance was totally askew. I was on the verge of losing my marriage, my family, my career, and my health. Now, sitting here reflecting 2.5 years later, I am a new man, rejuvenated, aligned with my natural instincts. Mikal&#8217;s teaching style is not instructive — he&#8217;s more of a guide, asking challenging questions and nudging towards an outcome that comes from within, not of his own predetermination. I wouldn&#8217;t hesitate to recommend it to anyone seeking to elevate themselves and their experience on this planet.
+        </blockquote>
+        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;">
+          <div style="width:2px;height:2rem;background:var(--gold);"></div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;">Robert Hymes</div>
+            <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.25rem;">Co-Owner &amp; Founder, MYNT Systems — California, US · 2.5 years coaching</div>
+          </div>
+          <div style="width:2px;height:2rem;background:var(--gold);"></div>
+        </div>
+      </div>
+    </div>
+  <!-- NOTE: Embed video testimonial from mikal.nz/testimonials here -->
+  <div class="video-note" style="margin-top:2.5rem">
+    <div class="video-play">
+      <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </div>
+    <p>
+      <strong>Watch Client Testimonials</strong>
+      <!-- SWAP: Replace with actual video embed from Mikal's testimonials page -->
+      Video testimonials from Mikal's clients — real people, real transformations. [Embed video here]
+    </p>
+  </div>
+</section>
+
+<!-- ─── CTA ────────────────────────────────────────────────── -->
+<section class="cta-section" id="contact">
+  <div class="section-label">Begin Here</div>
+  <h2>Ready to Transform Your<br />Business and Your Life?</h2>
+  <p>The first conversation is always a discovery call — no pressure, no obligation. Just an honest conversation about where you are and where you want to be.</p>
+  <!-- SWAP: Replace with Calendly link or contact form embed -->
+  <a href="mailto:info@mikal.nz" class="btn-gold">Book a Discovery Call</a>
+  <p class="cta-contact">Prefer to write first? Email Mikal at <a href="mailto:info@mikal.nz">info@mikal.nz</a></p>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3>Mikal Nielsen</h3>
+      <p>Transformational coaching for business owners, leaders, and teams. Based in Auckland &amp; Northland, New Zealand. Coaching globally via Zoom.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Individual Coaching</a></li>
+        <li><a href="#services">Business Coaching</a></li>
+        <li><a href="#services">Speaking &amp; Keynotes</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Content</h4>
+      <ul>
+        <li><a href="https://open.spotify.com/show/0J6Fym5smsiD4i4WIGUUTv" target="_blank">Podcast (Spotify)</a></li>
+        <li><a href="https://apple.co/4keHyjf" target="_blank">Podcast (Apple)</a></li>
+        <li><a href="https://www.amazon.com/dp/B0DJ311KH1" target="_blank">The Book</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@mikal.nz">info@mikal.nz</a></li>
+        <li><a href="https://www.linkedin.com/in/mikalnielsen/" target="_blank">LinkedIn</a></li>
+        <li><a href="#contact">Book a Call</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Mikal Nielsen. All rights reserved.</span>
+    <span>mikal.nz · Auckland, New Zealand</span>
+  </div>
+</footer>
+
+</body>
+</html>
