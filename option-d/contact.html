@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Mikal Nielsen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="../assets/images/mikal-logo-reversed.png" alt="Mikal Nielsen"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="speaking.html">Speaking</a></li>
+      <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html" class="nav-cta active">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('../assets/images/nz-waterfront.jpg');"></div>
+  <div class="container page-hero-content">
+    <div class="section-label">Contact</div>
+    <h1>Let's have a conversation</h1>
+    <p>Mikal reads and responds to every message personally. Whether you have a question, want to explore coaching or are enquiring about speaking — reach out.</p>
+  </div>
+</div>
+
+<!-- Contact Split -->
+<section class="section">
+  <div class="container">
+    <div class="split" style="gap: 4rem; align-items: flex-start;">
+
+      <!-- Left: General Enquiry Form -->
+      <div>
+        <div class="section-label">General Enquiry</div>
+        <h2>Send a message</h2>
+        <div class="copper-line"></div>
+        <p style="margin-bottom: 2.5rem; color: var(--text-light);">Use this form for any general enquiry — coaching, speaking, podcast, resources or anything else. Mikal will respond within one business day.</p>
+        <form>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Your last name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+64 ...">
+          </div>
+          <div class="form-group">
+            <label for="subject">What is this about?</label>
+            <select id="subject" name="subject">
+              <option value="">Select a topic</option>
+              <option value="coaching">Individual Coaching</option>
+              <option value="group">Group Programme (GPS)</option>
+              <option value="business">Business Programme</option>
+              <option value="retreat">Private Retreat</option>
+              <option value="speaking">Speaking Enquiry</option>
+              <option value="podcast">Podcast Guest Application</option>
+              <option value="resources">Free Resources</option>
+              <option value="other">General Question</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell Mikal what is on your mind..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-navy">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Right: Contact Info + CTAs -->
+      <div>
+        <div class="section-label">Direct Contact</div>
+        <h2>Reach Mikal directly</h2>
+        <div class="copper-line"></div>
+
+        <div style="margin: 2rem 0;">
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-text); margin-bottom: 0.4rem;">Email</p>
+          <a href="mailto:coach@mikal.nz" style="font-size: 1.15rem; font-weight: 600; color: var(--navy); font-family: 'Montserrat', sans-serif;">coach@mikal.nz</a>
+        </div>
+
+        <div style="margin: 2rem 0;">
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-text); margin-bottom: 0.4rem;">Location</p>
+          <p style="margin: 0; font-weight: 600; color: var(--navy);">Ruakaka 0116, Northland<br>New Zealand</p>
+          <p style="font-size: 0.88rem; color: var(--text-light); margin-top: 0.5rem;">Coaching delivered in person (Northland area) and remotely worldwide.</p>
+        </div>
+
+        <div style="margin: 2rem 0;">
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-text); margin-bottom: 0.75rem;">Connect</p>
+          <a href="https://www.linkedin.com/in/mikalnielsen/" target="_blank" class="btn btn-outline-navy" style="font-size: 0.75rem;">LinkedIn</a>
+        </div>
+
+        <!-- Coaching Application CTA -->
+        <div style="background: var(--grey); padding: 2rem; margin-top: 2.5rem; border-top: 2px solid var(--copper);">
+          <div class="section-label">Coaching Application</div>
+          <h3 style="margin-bottom: 0.75rem;">Ready to apply for coaching?</h3>
+          <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.5rem;">If you are serious about beginning a coaching programme, complete the application form above, selecting your preferred coaching type. Mikal reviews all applications personally and responds within 48 hours.</p>
+          <p style="font-size: 0.82rem; color: var(--grey-text);">Individual coaching: NZ$1,000&ndash;2,000/mo<br>GPS Programme: US$1,195<br>Private Retreat: NZ$15k&ndash;20k</p>
+        </div>
+
+        <!-- 20 Min Chat -->
+        <div style="background: var(--navy); color: var(--white); padding: 2rem; margin-top: 1.5rem;">
+          <div class="section-label" style="color: var(--copper-light);">Free Consultation</div>
+          <h3 style="color: var(--white); margin-bottom: 0.75rem;">Book a free 20-minute chat</h3>
+          <p style="color: rgba(255,255,255,0.72); font-size: 0.9rem; margin-bottom: 1.5rem;">Not sure which programme is right for you? Book a free 20-minute call with Mikal. No pitch, no pressure — just an honest conversation about where you are and where you want to go.</p>
+          <a href="mailto:coach@mikal.nz?subject=Free%2020-Min%20Chat%20Request" class="btn btn-copper">Request a Free Chat</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Speaking Enquiry -->
+<section class="section section--grey">
+  <div class="container">
+    <div class="split">
+      <div class="split-text">
+        <div class="section-label">Speaking Enquiries</div>
+        <h2>Book Mikal for your event</h2>
+        <div class="copper-line"></div>
+        <p>For conference keynotes, corporate events, leadership days and workshops, Mikal works with event organisers to deliver sessions tailored to your audience and objectives.</p>
+        <p>To discuss availability, topics, format and fees, email directly or use the general enquiry form above with "Speaking Enquiry" selected. Mikal responds to all speaking enquiries within 48 hours.</p>
+        <a href="mailto:coach@mikal.nz?subject=Speaking%20Enquiry" class="btn btn-navy" style="margin-top: 1.5rem;">Email About Speaking</a>
+      </div>
+      <div class="split-img">
+        <img src="../assets/images/mikal-speaking.jpeg" alt="Mikal Nielsen speaking">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../assets/images/mikal-logo-reversed.png" alt="Mikal Nielsen"></div>
+        <p>Revolutionary coaching, mental fitness and public speaking with Mikal Nielsen. Based in Ruakaka, New Zealand.</p>
+        <p style="margin-top: 0.75rem;"><a href="mailto:coach@mikal.nz" style="color: var(--copper);">coach@mikal.nz</a></p>
+      </div>
+      <div class="footer-col"><h4>Coaching</h4><ul><li><a href="coaching.html#individuals">Individuals</a></li><li><a href="coaching.html#group">Group Programme</a></li><li><a href="coaching.html#businesses">Businesses</a></li><li><a href="coaching.html#retreats">Private Retreats</a></li></ul></div>
+      <div class="footer-col"><h4>Content</h4><ul><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li><a href="about.html">About</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://www.linkedin.com/in/mikalnielsen/" target="_blank">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 Mikal Nielsen &middot; Ruakaka 0116, New Zealand</div>
+  </div>
+</footer>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMobile.classList.toggle('open'); });
+</script>
+</body>
+</html>

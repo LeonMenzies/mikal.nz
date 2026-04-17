@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Resources — Mikal Nielsen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .resource-card {
+    background: var(--white);
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+  }
+  .resource-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  }
+  .resource-card-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .resource-card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .resource-tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+  .resource-card-body h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--black);
+  }
+  .resource-card-body p {
+    font-size: 0.93rem;
+    color: #555;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+  .saboteur-box {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 2.5rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .saboteur-box h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  .saboteur-box p {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1.5rem;
+    max-width: 520px;
+  }
+  @media (max-width: 600px) {
+    .saboteur-box { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="../assets/images/mikal-logo-reversed.png" alt="Mikal Nielsen"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html" class="active">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('../assets/images/nz-landscape-mountains.jpg');"></div>
+  <div class="page-hero-accent"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="section-label">Free Downloads</div>
+      <h1>Resources for a Mentally Fit Life</h1>
+      <p>Practical tools, frameworks, and guides — all free. Built from 30 years of coaching experience.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="section section--grey">
+  <div class="container" style="text-align: center; max-width: 680px; margin: 0 auto;">
+    <div class="section-label">Why These Guides Exist</div>
+    <h2>Knowledge that changes behaviour</h2>
+    <div class="teal-line" style="margin: 1rem auto;"></div>
+    <p>These resources represent the most common themes Mikal encounters in 30 years of coaching: stress, time, parenting, and mental fitness. Each guide is designed to give you immediate, practical insight — not theory, but tools you can use today.</p>
+    <p style="margin-top: 1rem;">To access any guide, simply send a request via the contact page. Mikal sends them personally.</p>
+  </div>
+</section>
+
+<!-- 4 guide cards -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Free Guides</div>
+    <h2 class="section-title">Four Guides. Zero Cost.</h2>
+    <p class="section-intro">Each guide is a standalone resource — and all four together form a comprehensive toolkit for mental fitness.</p>
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <img src="../assets/images/guide-stress-buster.png" alt="Stress Buster Guide" class="resource-card-img">
+        <div class="resource-card-body">
+          <div class="resource-tag">Free Guide</div>
+          <h3>Stress Buster Guide</h3>
+          <p>Stress is the silent business killer — and most people are managing it in ways that make it worse. This guide gives you the mental fitness tools that actually work: fast, practical, and rooted in how the mind really functions.</p>
+          <a href="contact.html" class="btn btn-teal">Get This Guide</a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <img src="../assets/images/guide-mental-fitness.png" alt="Mental Fitness Guide" class="resource-card-img">
+        <div class="resource-card-body">
+          <div class="resource-tag">Free Guide</div>
+          <h3>Mental Fitness Guide</h3>
+          <p>What does it actually mean to be mentally fit — and how do you train it? This guide covers the foundations of mental fitness, why it matters more than IQ or motivation, and the daily practices that build it over time.</p>
+          <a href="contact.html" class="btn btn-teal">Get This Guide</a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <img src="../assets/images/guide-parenting.png" alt="Parenting Power Guide" class="resource-card-img">
+        <div class="resource-card-body">
+          <div class="resource-tag">Free Guide</div>
+          <h3>Parenting Power Guide</h3>
+          <p>Raising mentally fit, resilient, and genuinely confident kids requires a different kind of parenting. This guide draws on Mikal's coaching of parents and his own experience as a father to give you practical, compassionate tools.</p>
+          <a href="contact.html" class="btn btn-teal">Get This Guide</a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <img src="../assets/images/guide-time-mastery.png" alt="Time Mastery Framework" class="resource-card-img">
+        <div class="resource-card-body">
+          <div class="resource-tag">Free Framework</div>
+          <h3>Time Mastery Framework</h3>
+          <p>The framework from the book, condensed into a practical guide. Stop managing time and start mastering priorities. Understand what is really behind your overwhelm and the exact steps to resolve it — starting today.</p>
+          <a href="contact.html" class="btn btn-teal">Get This Guide</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Book action guide -->
+<section class="section section--grey">
+  <div class="container">
+    <div class="split">
+      <div class="split-img">
+        <img src="../assets/images/book-action-guide.png" alt="Book Action Guide">
+      </div>
+      <div class="split-text">
+        <div class="section-label">From the Book</div>
+        <h2>The Time Management Book Action Guide</h2>
+        <div class="teal-line"></div>
+        <p>A companion to Mikal's book "Time Management: A Complete Waste of Time" — this Action Guide takes every chapter from concept to practice.</p>
+        <p>It includes worksheets, prompts, and structured exercises that help you apply the Life Mastery Framework to your own life. Designed to be used repeatedly, not just once.</p>
+        <p>Available free with the book, or separately on request.</p>
+        <div class="btn-group" style="margin-top: 1.5rem;">
+          <a href="contact.html" class="btn btn-teal">Request the Action Guide</a>
+          <a href="book.html" class="btn btn-outline-teal">About the Book</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Saboteur test -->
+<section class="section">
+  <div class="container">
+    <div class="saboteur-box">
+      <div style="flex: 1;">
+        <div class="teal-line"></div>
+        <h3>Saboteur Assessment</h3>
+        <p>Discover the mental patterns that are quietly undermining your performance, relationships, and peace of mind. The Saboteur Assessment identifies the specific thinking habits holding you back — and gives you a starting point for the inner work.</p>
+        <p>Used by Mikal in his coaching to help clients identify their mental blind spots. Free to complete online via Positive Intelligence.</p>
+        <a href="https://www.positiveintelligence.com/saboteurs/" target="_blank" class="btn btn-teal">Take the Free Saboteur Test</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teal CTA band -->
+<section class="section--teal section">
+  <div class="container" style="text-align: center;">
+    <div class="section-label" style="color: rgba(255,255,255,0.8);">Want More?</div>
+    <h2 style="color: var(--white);">Ready to Go Deeper?</h2>
+    <p style="color: rgba(255,255,255,0.85); font-size: 1.05rem; max-width: 540px; margin: 1rem auto 2rem;">These guides are just the beginning. If you want to work through this material with Mikal directly — whether through coaching, a group programme, or a retreat — the next step is a free 20-minute chat.</p>
+    <div class="btn-group" style="justify-content: center;">
+      <a href="contact.html" class="btn btn-outline-white">Book a Free Chat</a>
+      <a href="coaching.html" class="btn btn-outline-white">Explore Coaching</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../assets/images/mikal-logo-reversed.png" alt="Mikal Nielsen"></div>
+        <p>Revolutionary coaching, mental fitness and public speaking with Mikal Nielsen. Based in Ruakaka, New Zealand.</p>
+        <p style="margin-top: 0.75rem;"><a href="mailto:coach@mikal.nz" style="color: var(--teal);">coach@mikal.nz</a></p>
+      </div>
+      <div class="footer-col"><h4>Coaching</h4><ul><li><a href="coaching.html#individuals">Individuals</a></li><li><a href="coaching.html#group">Group Programme</a></li><li><a href="coaching.html#businesses">Businesses</a></li><li><a href="coaching.html#retreats">Private Retreats</a></li></ul></div>
+      <div class="footer-col"><h4>Content</h4><ul><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li><a href="about.html">About</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://www.linkedin.com/in/mikalnielsen/" target="_blank">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 Mikal Nielsen &middot; Ruakaka 0116, New Zealand</div>
+  </div>
+</footer>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMobile.classList.toggle('open'); });
+</script>
+</body>
+</html>

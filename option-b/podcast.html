@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Fitness Podcast — Mikal Nielsen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .listen-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .listen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--teal);
+    color: var(--teal);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .listen-btn:hover {
+    background: var(--teal);
+    color: var(--white);
+  }
+  .episode-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .episode-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--grey-mid, #d4d4d4);
+  }
+  .episode-item:last-child {
+    border-bottom: none;
+  }
+  .ep-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--teal);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+  .ep-title {
+    font-weight: 500;
+    font-size: 0.97rem;
+    line-height: 1.4;
+    color: var(--black);
+  }
+  .ep-season {
+    font-size: 0.78rem;
+    color: var(--teal);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.2rem;
+  }
+  .season-header {
+    background: var(--black);
+    color: var(--white);
+    padding: 0.6rem 1rem;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-left: 3px solid var(--teal);
+    margin: 2rem 0 0.5rem;
+  }
+  .podcast-wide-img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+  }
+  .episodes-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 3rem;
+  }
+  @media (max-width: 768px) {
+    .episodes-cols { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="../assets/images/mikal-logo-reversed.png" alt="Mikal Nielsen"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="podcast.html" class="active">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('../assets/images/nz-landscape-sunset.jpg');"></div>
+  <div class="page-hero-accent"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="section-label">Mental Fitness Podcast</div>
+      <h1>INsight, INspiration, INtentional Action</h1>
+      <p>Conversations for leaders, entrepreneurs, and anyone serious about living a mentally fit life.</p>
+    </div>
+  </div>
+</section>
+
+<!-- About the podcast -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="split-text">
+        <div class="section-label">About the Show</div>
+        <h2>Real conversations. Real transformation.</h2>
+        <div class="teal-line"></div>
+        <p>The Mental Fitness Podcast is Mikal Nielsen's platform for exploring the interior life of high-performing individuals — business owners, entrepreneurs, athletes, and people navigating life's hardest moments.</p>
+        <p>Each episode goes beneath the surface: past the productivity tactics and into the thinking, the beliefs, and the inner work that separates people who are genuinely fulfilled from those who are merely busy.</p>
+        <p>36 episodes. Two seasons. Guests from around the world.</p>
+        <div class="listen-bar">
+          <a href="https://open.spotify.com/show/0J6Fym5smsiD4i4WIGUUTv" target="_blank" class="listen-btn">Listen on Spotify</a>
+          <a href="https://apple.co/4keHyjf" target="_blank" class="listen-btn">Listen on Apple Podcasts</a>
+          <a href="https://www.youtube.com/watch?v=kMZ_c7WypzU" target="_blank" class="listen-btn">Watch on YouTube</a>
+        </div>
+      </div>
+      <div class="split-img">
+        <img src="../assets/images/podcast-header.png" alt="Mental Fitness Podcast">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wide banner -->
+<section class="section section--grey" style="padding-top: 0; padding-bottom: 0;">
+  <div class="container" style="padding-top: 0; padding-bottom: 0;">
+    <img src="../assets/images/podcast-header-wide.png" alt="Mental Fitness Podcast" class="podcast-wide-img">
+  </div>
+</section>
+
+<!-- Episode list -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">All Episodes</div>
+    <h2 class="section-title">36 Episodes Across Two Seasons</h2>
+    <p class="section-intro">Every episode is available on Spotify, Apple Podcasts, and YouTube. Start anywhere — each stands alone.</p>
+
+    <div class="season-header">Season 2 — Episodes 19–36</div>
+    <div class="episodes-cols">
+      <ul class="episode-list">
+        <li class="episode-item">
+          <div class="ep-number">EP 36</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Wealth Dynamics</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 35</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">James Lang — 20 Years of Hard-Won Experience</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 34</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">How Mental Fitness Unlocks Success</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 33</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Fritz Frohlke — From Property Investor to Life Mastery</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 32</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">AI's Real Crisis: Mental Health</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 31</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Jeff Parnell — Heart Transplant to Business Leader</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 30</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">In Bed and In Business — Intimacy</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 29</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Clayton Hairs — Mountain Bike to Wheelchair</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 28</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Mental Fitness Gyms</div>
+          </div>
+        </li>
+      </ul>
+      <ul class="episode-list">
+        <li class="episode-item">
+          <div class="ep-number">EP 27</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Sleep Science and Performance</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 26</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Dr Raine Scriven — Burnout and Recovery</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 25</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Nick Speeden — Work Performance</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 24</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Overcoming Self-Doubt</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 23</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Grief Coaching</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 22</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Addictions and Recovery</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 21</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Midlife Reset</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 20</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Conscious Relationship</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 19</div>
+          <div>
+            <div class="ep-season">Season 2</div>
+            <div class="ep-title">Relationship Breakup Recovery</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="season-header">Season 1 — Episodes 1–18</div>
+    <div class="episodes-cols">
+      <ul class="episode-list">
+        <li class="episode-item">
+          <div class="ep-number">EP 18</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Body Mind Connection</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 17</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Lisa Spierings — Natural Health</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 16</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Scott Elaurant — IT Sales and the Inner Game</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 15</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">What People Think of Me</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 14</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Money Mindset</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 13</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Anxiety and Panic</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 12</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Resilience Under Pressure</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 11</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Susanne Rooney — Financial Adviser</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 10</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Tim Matthews — Entrepreneur</div>
+          </div>
+        </li>
+      </ul>
+      <ul class="episode-list">
+        <li class="episode-item">
+          <div class="ep-number">EP 9</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Jamie Fitzgerald — Explorer</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 8</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Anger and Relationships</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 7</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Parenting Strong Kids</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 6</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Goal Setting That Works</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 5</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Self-Awareness</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 4</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">James Yuile — Leadership</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 3</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Communication Mastery</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 2</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">Kerry McIver — Filmmaker</div>
+          </div>
+        </li>
+        <li class="episode-item">
+          <div class="ep-number">EP 1</div>
+          <div>
+            <div class="ep-season">Season 1</div>
+            <div class="ep-title">What is Mental Fitness?</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 2.5rem;">
+      <a href="https://open.spotify.com/show/0J6Fym5smsiD4i4WIGUUTv" target="_blank" class="btn btn-teal" style="margin-right: 1rem;">Listen on Spotify</a>
+      <a href="https://apple.co/4keHyjf" target="_blank" class="btn btn-outline-teal">Listen on Apple Podcasts</a>
+    </div>
+  </div>
+</section>
+
+<!-- Guest application CTA -->
+<section class="section--teal section">
+  <div class="container" style="text-align: center;">
+    <div class="section-label" style="color: rgba(255,255,255,0.8);">Season 3 Coming</div>
+    <h2 style="color: var(--white);">Want to be a Guest on the Podcast?</h2>
+    <p style="color: rgba(255,255,255,0.85); font-size: 1.05rem; max-width: 580px; margin: 1rem auto 2rem;">Mikal is always looking for guests with remarkable stories, genuine insight, or hard-won experience in the areas of mental fitness, leadership, business, health, or personal transformation. No polished PR speak — just real conversation.</p>
+    <a href="contact.html" class="btn btn-outline-white">Apply to Be a Guest</a>
+  </div>
+</section>
+
+<!-- Dark quote -->
+<section class="section--dark section">
+  <div class="container" style="text-align: center; max-width: 720px; margin: 0 auto;">
+    <div class="teal-line" style="margin: 0 auto 2rem;"></div>
+    <blockquote style="font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 500; color: var(--white); line-height: 1.6; margin-bottom: 1.5rem;">
+      "The podcast is not about entertainment. It is about the interior life — the thinking, the beliefs, the moments that change everything. I want every episode to leave the listener with one thought they cannot shake."
+    </blockquote>
+    <cite style="font-size: 0.88rem; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em;">Mikal Nielsen, Host</cite>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../assets/images/mikal-logo-reversed.png" alt="Mikal Nielsen"></div>
+        <p>Revolutionary coaching, mental fitness and public speaking with Mikal Nielsen. Based in Ruakaka, New Zealand.</p>
+        <p style="margin-top: 0.75rem;"><a href="mailto:coach@mikal.nz" style="color: var(--teal);">coach@mikal.nz</a></p>
+      </div>
+      <div class="footer-col"><h4>Coaching</h4><ul><li><a href="coaching.html#individuals">Individuals</a></li><li><a href="coaching.html#group">Group Programme</a></li><li><a href="coaching.html#businesses">Businesses</a></li><li><a href="coaching.html#retreats">Private Retreats</a></li></ul></div>
+      <div class="footer-col"><h4>Content</h4><ul><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li><a href="about.html">About</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://www.linkedin.com/in/mikalnielsen/" target="_blank">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 Mikal Nielsen &middot; Ruakaka 0116, New Zealand</div>
+  </div>
+</footer>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMobile.classList.toggle('open'); });
+</script>
+</body>
+</html>

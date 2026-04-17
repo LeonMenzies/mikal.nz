@@ -3,97 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Site Map — mikal.nz</title>
+<title>mikal.nz — Design Options</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Inter',sans-serif;background:#f8f7f4;color:#2d2d2d;padding:40px 24px}
-  h1{font-family:'Playfair Display',Georgia,serif;color:#1c2d4f;font-size:2rem;margin-bottom:8px}
-  p{color:#666;margin-bottom:32px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;max-width:1200px;margin:0 auto}
-  .page-card{background:#fff;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden;transition:transform .2s,box-shadow .2s}
-  .page-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
-  .card-header{background:#1c2d4f;padding:20px;display:flex;align-items:center;gap:12px}
-  .card-header .icon{font-size:1.6rem}
-  .card-header h2{color:#fff;font-size:1rem;font-family:'Inter',sans-serif;font-weight:600}
-  .card-header span{color:rgba(255,255,255,.6);font-size:.8rem}
-  .card-body{padding:18px 20px}
-  .card-body p{font-size:.88rem;color:#666;margin-bottom:14px;line-height:1.6}
-  .card-body a{display:inline-block;padding:9px 18px;background:#c8a84b;color:#1c2d4f;font-size:.84rem;font-weight:700;border-radius:5px;text-decoration:none;transition:background .2s}
-  .card-body a:hover{background:#dfc069}
-  header{text-align:center;margin-bottom:40px}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: #f5f5f5;
+    color: #1a1a2e;
+    padding: 3rem 1.5rem 5rem;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: #0a1628;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  header p {
+    color: #666;
+    font-size: 1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .option-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .option-card:hover {
+    box-shadow: 0 6px 28px rgba(0,0,0,0.1);
+  }
+
+  .card-header {
+    padding: 1.75rem 2rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .card-header .option-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0a1628;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .card-header .meta {
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  .card-body {
+    padding: 1.75rem 2rem;
+  }
+
+  .card-body .main-link {
+    display: inline-block;
+    padding: 0.65rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 1.75rem;
+    transition: all 0.2s;
+  }
+
+  .pages-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #aaa;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .page-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid #e0e0e0;
+    color: #555;
+    transition: all 0.15s;
+    background: #f5f5f5;
+  }
+
+  .page-links a:hover {
+    background: #0a1628;
+    color: #fff;
+    border-color: #0a1628;
+  }
+
+  /* Option A: Classic Professional */
+  .option-a .card-header { border-top: 3px solid #c8a84b; }
+  .option-a .option-label { color: #1c2d4f; }
+  .option-a .main-link { background: #1c2d4f; color: #fff; }
+  .option-a .main-link:hover { background: #c8a84b; color: #1c2d4f; }
+
+  /* Option B: Mental Fitness Coach */
+  .option-b .card-header { border-top: 3px solid #00b4a6; }
+  .option-b .option-label { color: #0d0d0d; }
+  .option-b .main-link { background: #0d0d0d; color: #fff; }
+  .option-b .main-link:hover { background: #00b4a6; color: #fff; }
+
+  /* Option C: The Wise Guide */
+  .option-c .card-header { border-top: 3px solid #c07850; }
+  .option-c .option-label { color: #2d4a38; }
+  .option-c .main-link { background: #2d4a38; color: #fff; }
+  .option-c .main-link:hover { background: #c07850; color: #fff; }
+
+  /* Option D: Modern Minimalist */
+  .option-d .card-header { border-top: 3px solid #b07d3a; }
+  .option-d .option-label { color: #0a1628; }
+  .option-d .main-link { background: #0a1628; color: #fff; }
+  .option-d .main-link:hover { background: #b07d3a; color: #fff; }
+
+  @media (max-width: 700px) {
+    .grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
+
 <header>
-  <h1>mikal.nz — Site Pages</h1>
-  <p>All pages of the redesigned mikal.nz website. Open any page to view it in full.</p>
+  <h1>mikal.nz &mdash; Design Options</h1>
+  <p>Four distinct design directions for the redesigned mikal.nz website. Click any option to open it, or browse individual pages below each card.</p>
 </header>
+
 <div class="grid">
-  <div class="page-card">
-    <div class="card-header"><div class="icon">🏠</div><div><h2>Home</h2><span>index.html</span></div></div>
+
+  <!-- Option A -->
+  <div class="option-card option-a">
+    <div class="card-header">
+      <div class="option-label">Option A</div>
+      <h2>Classic Professional</h2>
+      <div class="meta">Navy &amp; gold &middot; Playfair Display &middot; Formal authority</div>
+    </div>
     <div class="card-body">
-      <p>Main landing page — hero section, services overview, book promo, featured testimonials, newsletter signup.</p>
-      <a href="index.html">Open Page →</a>
+      <a href="option-a/index.html" class="main-link">Open Option A</a>
+      <div class="pages-label">All Pages</div>
+      <div class="page-links">
+        <a href="option-a/index.html">Home</a>
+        <a href="option-a/about.html">About</a>
+        <a href="option-a/coaching.html">Coaching</a>
+        <a href="option-a/speaking.html">Speaking</a>
+        <a href="option-a/podcast.html">Podcast</a>
+        <a href="option-a/book.html">Book</a>
+        <a href="option-a/resources.html">Resources</a>
+        <a href="option-a/testimonials.html">Testimonials</a>
+        <a href="option-a/contact.html">Contact</a>
+      </div>
     </div>
   </div>
-  <div class="page-card">
-    <div class="card-header"><div class="icon">👤</div><div><h2>About / Who's Mikal</h2><span>about.html</span></div></div>
+
+  <!-- Option B -->
+  <div class="option-card option-b">
+    <div class="card-header">
+      <div class="option-label">Option B</div>
+      <h2>Mental Fitness Coach</h2>
+      <div class="meta">Black &amp; teal &middot; DM Sans &middot; Bold and energetic</div>
+    </div>
     <div class="card-body">
-      <p>Mikal's personal story, background, credentials, and what drives him. With photos.</p>
-      <a href="about.html">Open Page →</a>
+      <a href="option-b/index.html" class="main-link">Open Option B</a>
+      <div class="pages-label">All Pages</div>
+      <div class="page-links">
+        <a href="option-b/index.html">Home</a>
+        <a href="option-b/about.html">About</a>
+        <a href="option-b/coaching.html">Coaching</a>
+        <a href="option-b/speaking.html">Speaking</a>
+        <a href="option-b/podcast.html">Podcast</a>
+        <a href="option-b/book.html">Book</a>
+        <a href="option-b/resources.html">Resources</a>
+        <a href="option-b/testimonials.html">Testimonials</a>
+        <a href="option-b/contact.html">Contact</a>
+      </div>
     </div>
   </div>
-  <div class="page-card">
-    <div class="card-header"><div class="icon">🧭</div><div><h2>Coaching</h2><span>coaching.html</span></div></div>
+
+  <!-- Option C -->
+  <div class="option-card option-c">
+    <div class="card-header">
+      <div class="option-label">Option C</div>
+      <h2>The Wise Guide</h2>
+      <div class="meta">Forest green &amp; terracotta &middot; Cormorant Garamond &middot; Warm and editorial</div>
+    </div>
     <div class="card-body">
-      <p>All coaching options in one page: Individuals, Group Program, Businesses &amp; Team Culture, Private Retreats.</p>
-      <a href="coaching.html">Open Page →</a>
+      <a href="option-c/index.html" class="main-link">Open Option C</a>
+      <div class="pages-label">All Pages</div>
+      <div class="page-links">
+        <a href="option-c/index.html">Home</a>
+        <a href="option-c/about.html">About</a>
+        <a href="option-c/coaching.html">Coaching</a>
+        <a href="option-c/speaking.html">Speaking</a>
+        <a href="option-c/podcast.html">Podcast</a>
+        <a href="option-c/book.html">Book</a>
+        <a href="option-c/resources.html">Resources</a>
+        <a href="option-c/testimonials.html">Testimonials</a>
+        <a href="option-c/contact.html">Contact</a>
+      </div>
     </div>
   </div>
-  <div class="page-card">
-    <div class="card-header"><div class="icon">🎤</div><div><h2>Speaking</h2><span>speaking.html</span></div></div>
+
+  <!-- Option D -->
+  <div class="option-card option-d">
+    <div class="card-header">
+      <div class="option-label">Option D</div>
+      <h2>Modern Minimalist</h2>
+      <div class="meta">Navy &amp; copper &middot; Montserrat &middot; Clean and corporate</div>
+    </div>
     <div class="card-body">
-      <p>Public speaking and keynotes — the "un-motivational speaker". Topics, testimonials, booking info.</p>
-      <a href="speaking.html">Open Page →</a>
+      <a href="option-d/index.html" class="main-link">Open Option D</a>
+      <div class="pages-label">All Pages</div>
+      <div class="page-links">
+        <a href="option-d/index.html">Home</a>
+        <a href="option-d/about.html">About</a>
+        <a href="option-d/coaching.html">Coaching</a>
+        <a href="option-d/speaking.html">Speaking</a>
+        <a href="option-d/podcast.html">Podcast</a>
+        <a href="option-d/book.html">Book</a>
+        <a href="option-d/resources.html">Resources</a>
+        <a href="option-d/testimonials.html">Testimonials</a>
+        <a href="option-d/contact.html">Contact</a>
+      </div>
     </div>
   </div>
-  <div class="page-card">
-    <div class="card-header"><div class="icon">🎧</div><div><h2>Podcast</h2><span>podcast.html</span></div></div>
-    <div class="card-body">
-      <p>Mental Fitness Podcast — all 36 episodes across Season 1 &amp; 2. Links to Spotify, Apple &amp; YouTube. Guest application form.</p>
-      <a href="podcast.html">Open Page →</a>
-    </div>
-  </div>
-  <div class="page-card">
-    <div class="card-header"><div class="icon">📖</div><div><h2>Book</h2><span>book.html</span></div></div>
-    <div class="card-body">
-      <p>Time Management: A Complete Waste of Time — book overview, reader reviews, Action Guide, Amazon order link.</p>
-      <a href="book.html">Open Page →</a>
-    </div>
-  </div>
-  <div class="page-card">
-    <div class="card-header"><div class="icon">🆓</div><div><h2>Free Resources</h2><span>resources.html</span></div></div>
-    <div class="card-body">
-      <p>4 free guides (Stress Buster, Mental Fitness, Parenting Power, Time Mastery), Action Guide, quizzes, articles and podcast appearances.</p>
-      <a href="resources.html">Open Page →</a>
-    </div>
-  </div>
-  <div class="page-card">
-    <div class="card-header"><div class="icon">💬</div><div><h2>Testimonials</h2><span>testimonials.html</span></div></div>
-    <div class="card-body">
-      <p>Full testimonials page — coaching, business, speaking and retreat reviews from clients across NZ and internationally.</p>
-      <a href="testimonials.html">Open Page →</a>
-    </div>
-  </div>
-  <div class="page-card">
-    <div class="card-header"><div class="icon">✉️</div><div><h2>Contact</h2><span>contact.html</span></div></div>
-    <div class="card-body">
-      <p>Contact form, coaching application form, free 20-min chat booking, direct email, and social links.</p>
-      <a href="contact.html">Open Page →</a>
-    </div>
-  </div>
+
 </div>
+
 </body>
 </html>

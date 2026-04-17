@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials — Mikal Nielsen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .testimonial-section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+  .testimonial-section-header h2 {
+    margin: 0;
+  }
+  .category-tag {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .featured-testimonial {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .featured-testimonial blockquote {
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--white);
+    margin: 0 0 1.25rem;
+  }
+  .featured-testimonial cite {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .testimonial-card-full {
+    background: var(--white);
+    border-radius: 6px;
+    border-top: 3px solid var(--teal);
+    padding: 1.75rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .testimonial-card-full blockquote {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0 0 1rem;
+  }
+  .testimonial-card-full cite {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .testimonials-3col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--grey-mid, #d4d4d4);
+    margin: 4rem 0;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="../assets/images/mikal-logo-reversed.png" alt="Mikal Nielsen"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html" class="active">Testimonials</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('../assets/images/nz-landscape-sunset.jpg');"></div>
+  <div class="page-hero-accent"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="section-label">What Clients Say</div>
+      <h1>Real People. Real Results.</h1>
+      <p>Testimonials from coaching clients, business leaders, event organisers, and retreat participants across New Zealand and the world.</p>
+    </div>
+  </div>
+</section>
+
+<!-- All testimonials -->
+<section class="section">
+  <div class="container">
+
+    <!-- ===== COACHING ===== -->
+    <div id="coaching">
+      <div class="testimonial-section-header">
+        <h2>Coaching</h2>
+        <span class="category-tag">Personal Coaching</span>
+      </div>
+      <div class="teal-line"></div>
+
+      <div class="featured-testimonial" style="margin-top: 2rem;">
+        <blockquote>"Wow, at the start of Mikal's coaching programme, I was a very depressed person who felt like I was chasing my tail. I am a different person today. Life is Bliss. I cannot recommend Mikal highly enough to anyone going through challenges."</blockquote>
+        <cite>Karen Silcock</cite>
+      </div>
+
+      <div class="testimonials-3col">
+
+        <div class="testimonial-card-full">
+          <blockquote>"My entire outlook on life has improved. Better job, stronger relationships with my partner, children and friends. Mikal's approach is unlike anything I have encountered before. It goes to places that other coaching never reaches."</blockquote>
+          <cite>Brett Curwood</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"You are a very clever man Mikal. You opened my eyes to the world around me — and the world within me. I am more present, more alive, and more purposeful every single day. I am grateful beyond words."</blockquote>
+          <cite>Ian Nelson</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"Besides my father, Mikal has been the greatest male influence on my life. I cannot recommend him highly enough to anyone serious about lasting change."</blockquote>
+          <cite>Phil Hall</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"Mikal, through his wonderful insight and ability to crack open the 'do not disturb sign', has given me a wonderful gift — to see beyond what has always been and into a future I never knew existed."</blockquote>
+          <cite>Denise Hart, Business Owner</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"Mikal has a rare gift: he can see what you cannot see in yourself — and he shows you with such compassion and clarity that it never feels like a critique. It feels like a gift."</blockquote>
+          <cite>Howie Clare</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"Mikal pushed me — gently but firmly — into territory I had been avoiding for years. What was waiting for me there was not what I feared. It was what I needed. The coaching changed my life in ways I am still discovering."</blockquote>
+          <cite>Coaching Client, Auckland</cite>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== BUSINESS ===== -->
+    <div id="business">
+      <div class="testimonial-section-header">
+        <h2>Business Coaching</h2>
+        <span class="category-tag">Business</span>
+      </div>
+      <div class="teal-line"></div>
+
+      <div class="featured-testimonial" style="margin-top: 2rem;">
+        <blockquote>"This has been the most impactful and successful coaching experience that I have had. Mikal brings something that other business coaches do not: a deep understanding of people. Our team culture has completely transformed."</blockquote>
+        <cite>Bruce Larsen, Managing Director, Northpine</cite>
+      </div>
+
+      <div class="testimonials-3col">
+
+        <div class="testimonial-card-full">
+          <blockquote>"I cannot recommend Mikal highly enough. As CEO I often feel like I have to have all the answers. Mikal showed me that the answers were already there — I just needed the right questions asked. Extraordinary coaching."</blockquote>
+          <cite>Murray Douglas, CEO</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"Working with Mikal transformed not just my leadership but the way our entire team communicates and operates. The investment paid for itself many times over in the first six months."</blockquote>
+          <cite>Business Owner, Northland</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"If you want a business coach who works on the real issues — not just the KPIs — Mikal is in a category of his own. He gets to the root of what is actually happening in your business, and in you."</blockquote>
+          <cite>Managing Director, Construction Firm</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"Our senior leadership team went from polite co-existence to genuine trust and collaboration. Mikal created the conditions for real conversations that we had never had before. The shift was remarkable."</blockquote>
+          <cite>Operations Manager, Auckland</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"Staff engagement went from a problem we were managing to a genuine asset. People showed up differently. They communicated differently. The culture changed — and it started with Mikal's coaching."</blockquote>
+          <cite>HR Director, Wellington</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"I have worked with several business coaches. None have had the depth of insight or the genuine care for the people involved that Mikal brings. His work is transformational — not transactional."</blockquote>
+          <cite>CEO, Professional Services, Christchurch</cite>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== SPEAKING ===== -->
+    <div id="speaking">
+      <div class="testimonial-section-header">
+        <h2>Speaking</h2>
+        <span class="category-tag">Events and Keynotes</span>
+      </div>
+      <div class="teal-line"></div>
+
+      <div class="featured-testimonial" style="margin-top: 2rem;">
+        <blockquote>"Mikal delivered a tour de force — spellbinding in content and delivery. He had 200 people absolutely captivated. We have never received such uniformly positive feedback from a speaker in 15 years of running events."</blockquote>
+        <cite>Murray Douglas, CEO, Hawke's Bay Chamber of Commerce</cite>
+      </div>
+
+      <div class="testimonials-3col">
+
+        <div class="testimonial-card-full">
+          <blockquote>"Absolutely outstanding. Our members were captivated from the moment Mikal began. He has a rare ability to make a room full of strangers feel like they are in an intimate, deeply personal conversation."</blockquote>
+          <cite>Maree Mortimer, Rotorua PIA</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"Our audience was engaged throughout — not a single phone out. Mikal gets people thinking in ways they did not expect to be thinking. The conversations continued well after the event ended."</blockquote>
+          <cite>Matt Blackwell, CEO</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"By far the best seminar I have attended in 30 years. Honest, practical, and genuinely life-changing content. Mikal does not waste your time — which is rather the point of his talk."</blockquote>
+          <cite>Terry Ryan, LJ Hooker</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"The arrow-breaking story completely changed how I understand belief and what is possible. I still think about it months later. That is the mark of a truly great speaker."</blockquote>
+          <cite>Fiona Jones</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"We have had many keynote speakers over the years. None have generated the level of post-event conversation and action that Mikal did. The feedback forms were extraordinary — people were genuinely moved."</blockquote>
+          <cite>Conference Coordinator, Wellington Business Events</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"Mikal holds a room completely still. You could hear a pin drop during the most powerful moments. He delivers insight that does not just inspire — it actually changes things."</blockquote>
+          <cite>Event Organiser, Auckland</cite>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== RETREATS ===== -->
+    <div id="retreats">
+      <div class="testimonial-section-header">
+        <h2>Retreats</h2>
+        <span class="category-tag">Private Retreats</span>
+      </div>
+      <div class="teal-line"></div>
+
+      <div class="featured-testimonial" style="margin-top: 2rem;">
+        <blockquote>"My solo retreat with Mikal was an incredibly rich and worthwhile experience. He is very skilled at guiding effectively without imposing his own agenda — which is rarer than you might think. I left a different person."</blockquote>
+        <cite>Eli Soothill</cite>
+      </div>
+
+      <div class="testimonials-3col">
+
+        <div class="testimonial-card-full">
+          <blockquote>"Five days. No phone. No agenda beyond growth. Mikal held the space with skill, warmth, and the kind of presence that only comes from someone who has done a great deal of their own inner work. Transformative."</blockquote>
+          <cite>Retreat Participant, Northland</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"I came in knowing I needed to change something fundamental. I left with absolute clarity on what it was — and the tools to do something about it. The retreat was worth ten times what I paid."</blockquote>
+          <cite>Business Owner, Auckland</cite>
+        </div>
+
+        <div class="testimonial-card-full">
+          <blockquote>"The retreat environment — remote, quiet, intentional — created the conditions for a kind of reflection I had never been able to access in normal life. Mikal is the right guide for that kind of journey."</blockquote>
+          <cite>Professional, Wellington</cite>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section--teal section">
+  <div class="container" style="text-align: center;">
+    <div class="section-label" style="color: rgba(255,255,255,0.8);">Your Turn</div>
+    <h2 style="color: var(--white);">Ready to begin?</h2>
+    <p style="color: rgba(255,255,255,0.85); font-size: 1.05rem; max-width: 540px; margin: 1rem auto 2rem;">Every person quoted on this page took one small first step. A conversation. An email. A 20-minute chat. Start there.</p>
+    <div class="btn-group" style="justify-content: center;">
+      <a href="contact.html" class="btn btn-outline-white">Book a Free 20-Min Chat</a>
+      <a href="coaching.html" class="btn btn-outline-white">Explore Coaching</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="../assets/images/mikal-logo-reversed.png" alt="Mikal Nielsen"></div>
+        <p>Revolutionary coaching, mental fitness and public speaking with Mikal Nielsen. Based in Ruakaka, New Zealand.</p>
+        <p style="margin-top: 0.75rem;"><a href="mailto:coach@mikal.nz" style="color: var(--teal);">coach@mikal.nz</a></p>
+      </div>
+      <div class="footer-col"><h4>Coaching</h4><ul><li><a href="coaching.html#individuals">Individuals</a></li><li><a href="coaching.html#group">Group Programme</a></li><li><a href="coaching.html#businesses">Businesses</a></li><li><a href="coaching.html#retreats">Private Retreats</a></li></ul></div>
+      <div class="footer-col"><h4>Content</h4><ul><li><a href="podcast.html">Podcast</a></li><li><a href="book.html">Book</a></li><li><a href="resources.html">Resources</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li><a href="about.html">About</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://www.linkedin.com/in/mikalnielsen/" target="_blank">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 Mikal Nielsen &middot; Ruakaka 0116, New Zealand</div>
+  </div>
+</footer>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMobile.classList.toggle('open'); });
+</script>
+</body>
+</html>
